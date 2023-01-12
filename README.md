@@ -1,2 +1,2 @@
 # 2023-scouting-android
-Code for 2023 FRC Game Scouting Application
+FRC Team 1810 - Catatronics - 2023 -Charged Up - Scouting Application
