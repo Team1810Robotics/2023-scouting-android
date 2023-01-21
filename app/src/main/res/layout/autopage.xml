@@ -5,14 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button"
+    <CheckBox
+        android:id="@+id/AutoEngaged"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Engaged"
+        app:layout_constraintBottom_toBottomOf="@+id/AutoDocked"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/AutoDocked"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <CheckBox
+        android:id="@+id/AutoLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Left Community"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.901" />
+
+    <CheckBox
+        android:id="@+id/AutoDocked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Docked"
+        app:layout_constraintBottom_toBottomOf="@+id/AutoLeft"
+        app:layout_constraintEnd_toStartOf="@+id/AutoEngaged"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toEndOf="@+id/AutoLeft"
+        app:layout_constraintTop_toTopOf="@+id/AutoLeft"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/AutoTitle"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:text="Auto"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.068" />
+
 </android.support.constraint.ConstraintLayout>

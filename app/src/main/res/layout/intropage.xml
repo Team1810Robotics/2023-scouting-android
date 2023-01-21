@@ -5,15 +5,84 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+    <Spinner
+        android:id="@+id/IntroAlliance"
+        android:layout_width="94dp"
+        android:layout_height="47dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/IntroRound"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/IntroRound"
+        app:layout_constraintTop_toBottomOf="@+id/IntroTeam"
+        app:layout_constraintVertical_bias="0.627" />
+
+    <EditText
+        android:id="@+id/IntroRound"
+        android:layout_width="98dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="88dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/IntroAlliance"
+        app:layout_constraintEnd_toEndOf="@+id/IntroTeam"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/IntroTeam"
+        app:layout_constraintTop_toBottomOf="@+id/IntroTeam"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <EditText
+        android:id="@+id/IntroTeam"
+        android:layout_width="97dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.836"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.222" />
+        app:layout_constraintVertical_bias="0.329" />
+
+    <TextView
+        android:id="@+id/IntroTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Intro"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <TextView
+        android:id="@+id/IntroTeamLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Team #"
+        app:layout_constraintBottom_toBottomOf="@+id/IntroTeam"
+        app:layout_constraintEnd_toStartOf="@+id/IntroTeam"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/IntroTeam" />
+
+    <TextView
+        android:id="@+id/IntroRoundLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Round #"
+        app:layout_constraintBottom_toBottomOf="@+id/IntroRound"
+        app:layout_constraintEnd_toStartOf="@+id/IntroRound"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/IntroRound" />
+
+    <TextView
+        android:id="@+id/IntroAllianceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alliance"
+        app:layout_constraintBottom_toBottomOf="@+id/IntroAlliance"
+        app:layout_constraintEnd_toStartOf="@+id/IntroAlliance"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/IntroAlliance" />
+
 </android.support.constraint.ConstraintLayout>
