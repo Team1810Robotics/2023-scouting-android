@@ -5,41 +5,481 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <CheckBox
-        android:id="@+id/AutoEngaged"
+    <Button
+        android:id="@+id/AutoPreviousPageButton"
+        android:layout_width="110dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="285dp"
+        android:layout_marginBottom="631dp"
+        android:text="Previous Page"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoNextPageButton"
+        android:layout_width="110dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="285dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="631dp"
+        android:text="Next Page"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoLowConesMinus"
+        android:layout_width="61dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginBottom="505dp"
+        android:text="-"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoLowCubesPlus"
+        android:layout_width="62dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="251dp"
+        android:layout_marginTop="177dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="506dp"
+        android:text="+"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AutoLowConesTicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Engaged"
-        app:layout_constraintBottom_toBottomOf="@+id/AutoDocked"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="183dp"
+        android:layout_marginEnd="244dp"
+        android:layout_marginBottom="521dp"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/AutoDocked"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoLowConesPlus"
+        android:layout_width="60dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="267dp"
+        android:layout_marginBottom="506dp"
+        android:onClick="increment"
+        android:text="+"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/AutoMidCubeTicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="323dp"
+        android:layout_marginTop="271dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="433dp"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoMidCubePlus"
+        android:layout_width="62dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="251dp"
+        android:layout_marginTop="265dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="418dp"
+        android:text="+"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="65dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="183dp"
+        android:layout_marginEnd="343dp"
+        android:layout_marginBottom="514dp"
+        android:text="Low:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoLowCubesMinus"
+        android:layout_width="62dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="343dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="506dp"
+        android:text="-"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="362dp"
+        android:layout_marginEnd="361dp"
+        android:layout_marginBottom="342dp"
+        android:text="High:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginEnd="232dp"
+        android:layout_marginBottom="380dp"
+        android:text="Cones"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoMidCubeMinus"
+        android:layout_width="62dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="343dp"
+        android:layout_marginTop="263dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="418dp"
+        android:text="-"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoHighConeMinus"
+        android:layout_width="61dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="354dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginBottom="327dp"
+        android:text="-"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AutoHighCubeTicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="323dp"
+        android:layout_marginTop="362dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="342dp"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoMidConePlus"
+        android:layout_width="60dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="264dp"
+        android:layout_marginEnd="267dp"
+        android:layout_marginBottom="418dp"
+        android:text="+"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="233dp"
+        android:layout_marginEnd="233dp"
+        android:layout_marginBottom="471dp"
+        android:text="Cones"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AutoMidConeTicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="271dp"
+        android:layout_marginEnd="244dp"
+        android:layout_marginBottom="433dp"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="293dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="380dp"
+        android:text="Cubes"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AutoLowCubesTicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="323dp"
+        android:layout_marginTop="183dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="521dp"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="65dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="271dp"
+        android:layout_marginEnd="343dp"
+        android:layout_marginBottom="426dp"
+        android:text="Middle:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="293dp"
+        android:layout_marginTop="233dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="471dp"
+        android:text="Cubes"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoHighConePlus"
+        android:layout_width="60dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="355dp"
+        android:layout_marginEnd="267dp"
+        android:layout_marginBottom="327dp"
+        android:text="+"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoMidConeMinus"
+        android:layout_width="61dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="264dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginBottom="417dp"
+        android:text="-"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AutoHighConeTicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="362dp"
+        android:layout_marginEnd="244dp"
+        android:layout_marginBottom="342dp"
+        android:text="0"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="293dp"
+        android:layout_marginTop="145dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="559dp"
+        android:text="Cubes"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoHighCubePlus"
+        android:layout_width="62dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="251dp"
+        android:layout_marginTop="356dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="327dp"
+        android:text="+"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/AutoHighCubeMinus"
+        android:layout_width="62dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="343dp"
+        android:layout_marginTop="354dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="327dp"
+        android:text="-"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AutoLowConesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="121dp"
+        android:layout_marginTop="145dp"
+        android:layout_marginEnd="233dp"
+        android:layout_marginBottom="559dp"
+        android:text="Cones"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/AutoLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
         android:text="Left Community"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.901" />
+        app:layout_constraintVertical_bias="0.705" />
 
     <CheckBox
         android:id="@+id/AutoDocked"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="136dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="536dp"
+        android:layout_marginEnd="137dp"
+        android:layout_marginBottom="131dp"
         android:text="Docked"
-        app:layout_constraintBottom_toBottomOf="@+id/AutoLeft"
-        app:layout_constraintEnd_toStartOf="@+id/AutoEngaged"
-        app:layout_constraintHorizontal_bias="0.474"
-        app:layout_constraintStart_toEndOf="@+id/AutoLeft"
-        app:layout_constraintTop_toTopOf="@+id/AutoLeft"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/autoDocked"
+        android:layout_width="136dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="137dp"
+        android:layout_marginBottom="67dp"
+        android:text="Engaged"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/AutoTitle"
