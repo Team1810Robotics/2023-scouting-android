@@ -5,51 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/IntroNextPageButton"
-        android:layout_width="110dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="285dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="602dp"
-        android:text="Next Page"
+    <Spinner
+        android:id="@+id/IntroAlliance"
+        android:layout_width="130dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="235dp"
+        android:layout_marginTop="522dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="143dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/IntroAlliance"
-        android:layout_width="94dp"
-        android:layout_height="47dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/IntroRound"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/IntroRound"
-        app:layout_constraintTop_toBottomOf="@+id/IntroTeam"
-        app:layout_constraintVertical_bias="0.627" />
-
     <EditText
         android:id="@+id/IntroRound"
-        android:layout_width="98dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="88dp"
+        android:layout_width="127dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="238dp"
+        android:layout_marginTop="371dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="306dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/IntroAlliance"
-        app:layout_constraintEnd_toEndOf="@+id/IntroTeam"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/IntroTeam"
-        app:layout_constraintTop_toBottomOf="@+id/IntroTeam"
-        app:layout_constraintVertical_bias="0.022" />
+        android:text="Enter Here"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/IntroTeam"
-        android:layout_width="97dp"
-        android:layout_height="46dp"
+        android:layout_width="127dp"
+        android:layout_height="60dp"
         android:ems="10"
         android:inputType="number"
+        android:text="Enter Here"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.836"
@@ -73,30 +64,42 @@
         android:id="@+id/IntroTeamLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="242dp"
+        android:layout_marginEnd="270dp"
+        android:layout_marginBottom="470dp"
         android:text="Team #"
-        app:layout_constraintBottom_toBottomOf="@+id/IntroTeam"
-        app:layout_constraintEnd_toStartOf="@+id/IntroTeam"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/IntroTeam" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/IntroRoundLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="389dp"
+        android:layout_marginEnd="266dp"
+        android:layout_marginBottom="323dp"
         android:text="Round #"
-        app:layout_constraintBottom_toBottomOf="@+id/IntroRound"
-        app:layout_constraintEnd_toStartOf="@+id/IntroRound"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/IntroRound" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/IntroAllianceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="546dp"
+        android:layout_marginEnd="266dp"
+        android:layout_marginBottom="166dp"
         android:text="Alliance"
-        app:layout_constraintBottom_toBottomOf="@+id/IntroAlliance"
-        app:layout_constraintEnd_toStartOf="@+id/IntroAlliance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/IntroAlliance" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
