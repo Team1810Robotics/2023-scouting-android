@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +8,7 @@
     tools:context=".MainActivity">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/AppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.Scouting2023.AppBarOverlay">
@@ -20,47 +22,42 @@
             android:padding="@dimen/appbar_padding"
             android:text="@string/app_name"
             android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
     </android.support.design.widget.AppBarLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            tools:layout_editor_absoluteX="8dp"/>
-
-
-
-
-        <RelativeLayout
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".MainActivity">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/AppBar">
 
-            <android.support.design.widget.TabLayout
-                android:id="@+id/tabLayout"
+            <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#1db995"></android.support.design.widget.TabLayout>
+                android:text="Intro"/>
+            <android.support.design.widget.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Auto"/>
+            <android.support.design.widget.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TeleOp"/>
+            <android.support.design.widget.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EndGame"/>
+        </android.support.design.widget.TabLayout>
 
-        </RelativeLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabLayout"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+      </android.support.v4.view.ViewPager>
+</RelativeLayout>
 
 
 
-
-
-    </android.support.v4.view.ViewPager>
-
-
-</android.support.design.widget.CoordinatorLayout>
