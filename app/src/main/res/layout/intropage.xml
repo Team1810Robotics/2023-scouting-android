@@ -7,24 +7,14 @@
     tools:context=".ui.main.Intro">
 
 
-    <Button
-        android:id="@+id/IntroNextPageButton"
-        android:layout_width="110dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="285dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="602dp"
-        android:text="Next Page"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/IntroAlliance"
-        android:layout_width="94dp"
+        android:layout_width="200dp"
         android:layout_height="47dp"
+        android:layout_marginTop="150dp"
+        android:entries="@array/alliance_Colors"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/IntroRound"
         app:layout_constraintHorizontal_bias="1.0"
@@ -59,17 +49,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.329" />
 
-    <TextView
-        android:id="@+id/IntroTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Intro"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.11" />
+
 
     <TextView
         android:id="@+id/IntroTeamLabel"
