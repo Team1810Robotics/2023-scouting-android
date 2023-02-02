@@ -8,34 +8,6 @@
 
 
     <Button
-        android:id="@+id/AutoPreviousPageButton"
-        android:layout_width="110dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="285dp"
-        android:layout_marginBottom="631dp"
-        android:text="Previous Page"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/AutoNextPageButton"
-        android:layout_width="110dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="285dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="631dp"
-        android:text="Next Page"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/AutoLowConesMinus"
         android:layout_width="61dp"
         android:layout_height="50dp"
@@ -445,8 +417,8 @@
 
     <CheckBox
         android:id="@+id/AutoLeft"
-        android:layout_width="134dp"
-        android:layout_height="66dp"
+        android:layout_width="135dp"
+        android:layout_height="73dp"
         android:text="Left Community"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
