@@ -3,7 +3,7 @@ package com.example.scouting_2023;
 public enum bundleValues {
 
 
-    IntroTeamNumber,IntroRoundNumnber,IntroAllianceColor,
+    IntroTeamNumber,IntroRoundNumber,IntroAllianceColor,
 
 
         AutoLowConesTicker,AutoMidConesTicker,AutoHighConesTicker,
@@ -12,10 +12,10 @@ public enum bundleValues {
         AutoLeftCommunity,AutoDocked,AutoEngaged,
 
 
-             TeleOPLowConeTicker,TeleOpMidConeTicker,TeleOpHighConeTicker,
+             TeleOpLowConesTicker,TeleOpMidConeTicker,TeleOpHighConeTicker,
              TeleOpLowCubeTicker,TeleOpMidCubeTicker,TeleOpHighCubeTicker,
 
-             TeleOpRoleDrop,TeleOopNaughtyCheck,
+             TeleOpRoleDrop,TeleOpNaughtyCheck,
 
 
             EndgameLowLinkTicker,EndgameMidLinkTicker,EndgameHighLinkTicker,

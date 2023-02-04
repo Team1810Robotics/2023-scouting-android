@@ -8,7 +8,7 @@
 
 
     <Button
-        android:id="@+id/TeleOpLowCubesMinus"
+        android:id="@+id/TeleOpHighCubesMinus"
         android:layout_width="62dp"
         android:layout_height="50dp"
         android:layout_marginStart="343dp"
@@ -188,7 +188,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView35"
+        android:id="@+id/TeleOpMidCubeTicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="323dp"
@@ -357,7 +357,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/TeleOpHighConeTicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="156dp"
@@ -432,7 +432,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/TeleOpHighCubeTicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="323dp"
