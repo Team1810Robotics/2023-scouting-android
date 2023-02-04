@@ -36,6 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <EditText
         android:id="@+id/IntroTeam"
         android:layout_width="127dp"
@@ -49,9 +50,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.329" />
 
-
     <TextView
-        android:id="@+id/IntroTeamLabel"
+        android:id="@+id/IntroTeamNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="93dp"
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/IntroRoundLabel"
+        android:id="@+id/IntroRoundNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="93dp"

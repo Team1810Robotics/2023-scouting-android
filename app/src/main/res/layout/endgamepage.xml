@@ -114,7 +114,7 @@
         tools:layout_conversion_absoluteWidth="52dp" />
 
     <TextView
-        android:id="@+id/textView54"
+        android:id="@+id/EndgameHighLinkTicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -253,7 +253,7 @@
         tools:layout_conversion_absoluteWidth="185dp" />
 
     <TextView
-        android:id="@+id/EndgameHighLinkTicker"
+        android:id="@+id/EndgameTeamScoreLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Team Score"
@@ -304,10 +304,10 @@
         android:text="Check if Yes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715"
+        app:layout_constraintVertical_bias="0.713"
         tools:layout_conversion_absoluteHeight="61dp"
         tools:layout_conversion_absoluteWidth="136dp" />
 
@@ -318,10 +318,10 @@
         android:text="Docked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.804"
+        app:layout_constraintVertical_bias="0.788"
         tools:layout_conversion_absoluteHeight="50dp"
         tools:layout_conversion_absoluteWidth="98dp" />
 
@@ -332,10 +332,9 @@
         android:text="Engaged"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864"
+        app:layout_constraintVertical_bias="0.848"
         tools:layout_conversion_absoluteHeight="55dp"
         tools:layout_conversion_absoluteWidth="107dp" />
 

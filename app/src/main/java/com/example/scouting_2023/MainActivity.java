@@ -1,5 +1,6 @@
 package com.example.scouting_2023;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,10 +55,37 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
             }
+            int cone;
+            int cube;
+            int links;
+            int ticker;
+            int conesLimit = 9;
+            int cubesLimit = 9;
 
-            //      public void incrementUpperCone() {
 
-            //      }
+
+
+
+
+
+
+            //TODO need to make a working enum for buttons
+            public void incrementCone(int id, bundleValues bundleLocation,int conesLimit){
+                final Intent i = getIntent();
+                Bundle bundle = i.getExtras();
+
+           if(bundle == null){
+               bundle = new Bundle();
+
+               bundle.putInt(bundleLocation.toString(), cone);
+               i.putExtras(bundle);
+           }
+
+            if(cone < conesLimit){
+                cone++;
+                    final TextView displayCones = findViewById(id);
+                displayCones.setText("" + cone);
+
         });
     }
             public void endgameSubmit(View view) {

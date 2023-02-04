@@ -38,7 +38,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/AutoLowConesTicker"
+        android:id="@+id/AutoLowConeTicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="156dp"
@@ -54,6 +54,7 @@
 
     <Button
         android:id="@+id/AutoLowConesPlus"
+       tools:onclick="incrementUpperCone"
         android:layout_width="60dp"
         android:layout_height="49dp"
         android:layout_marginStart="84dp"
@@ -416,7 +417,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/AutoLeft"
+        android:id="@+id/AutoLeftCommunity"
         android:layout_width="135dp"
         android:layout_height="73dp"
         android:text="Left Community"
@@ -442,7 +443,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/autoDocked"
+        android:id="@+id/AutoEngaged"
         android:layout_width="136dp"
         android:layout_height="64dp"
         android:layout_marginStart="138dp"
