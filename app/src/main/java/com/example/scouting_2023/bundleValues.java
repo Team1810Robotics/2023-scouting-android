@@ -24,15 +24,4 @@ public enum bundleValues {
 
             EndgameTotalScoreBox,EndgameCooperatitionBounusBox,EndgameDidTheyWinBox,EndgameDockedBox,EndgameEngagedBox
 
-
-
-
-
-
-
-
-
-
-
-
 }

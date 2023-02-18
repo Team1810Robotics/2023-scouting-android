@@ -58,13 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    int cone;
-    int cube;
-    int links;
-    int ticker;
-    int conesLimit = 9;
-    int cubesLimit = 9;
-
 
     //TODO need to make a working enum for buttons
     public void incrementCone(int id, bundleValues bundleLocation, int conesLimit) {
@@ -90,12 +83,32 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) {
             bundle = new Bundle();
-            CSVWriter writer = null;
-            //Populating the bundles
+        }
+        //   final DataModel data = new DataModel();
 
-            //IntroPage Bundle
-            data.setMatchID(bundle.getInt(bundleValues.IntroRoundNumber.toString(), 0));
-            data.setTeamID(TeamNumbers.fromValue(bundle.getString(bundleValues.IntroTeamNumber.toString(), TeamNumbers.TEAM_245.toString())));
+        CSVWriter writer = null;
+        //Populating the bundles
+
+        //IntroPage Bundle
+        String tmpMatchID = bundle.getString(bundleValues.IntroRoundNumber.toString());
+        String tmpTeamID = bundle.getString(bundleValues.IntroTeamNumber.toString());
+        String tmpAllianceColor = bundle.getString(bundleValues.IntroAllianceColor.toString());
+
+        //AutoPage Bundle
+        String tmpAutoHighCone = bundle.getString(bundleValues.AutoHighConesTicker.toString());
+        String tmpAutoHighCube = bundle.getString(bundleValues.AutoHighCubeTicker.toString());
+        String tmpAutoMidCone = bundle.getString(bundleValues.AutoMidConesTicker.toString());
+        String tmpAutoMidCube = bundle.getString(bundleValues.AutoMidCubeTicker.toString());
+        String tmpAutoLowCone = bundle.getString(bundleValues.AutoLowConesTicker.toString());
+        String tmpAutoLowCube = bundle.getString(bundleValues.AutoLowCubeTicker.toString());
+        String tmpAutoDocked = bundle.getString(bundleValues.AutoDocked.toString());
+        String tmpAutoEngaged = bundle.getString(bundleValues.AutoEngaged.toString());
+        String tmpAutoLeft = bundle.getString(bundleValues.AutoLeftCommunity.toString());
+
+
+        // data.setMatchID(bundle.getInt(bundleValues.IntroRoundNumber.toString(), 0));
+
+        /*    data.setTeamID(TeamNumbers.fromValue(bundle.getString(bundleValues.IntroTeamNumber.toString(), TeamNumbers.TEAM_245.toString())));
             data.setAllianceColor(TeamColors.forLabel(bundle.getString(bundleValues.IntroAllianceColor.toString(), TeamColors.BLUE.toString())));
 
             //Auto Page Bundle
@@ -128,165 +141,130 @@ public class MainActivity extends AppCompatActivity {
             data.setEndgameWin(bundle.getBoolean(bundleValues.EndgameDidTheyWinBox.toString(), false));
             data.setEndgameScore(bundle.getInt(bundleValues.EndgameTotalScoreBox.toString(), 0));
             data.setEndgameCoopertition(bundle.getBoolean(bundleValues.EndgameCooperatitionBounusBox.toString(), false));
-
-            // Try is only for creating the file
-            try {
-                UUID uuid = UUID.randomUUID();
-                String uuidAsString = uuid.toString();
-                String currentFileName = filepath + uuidAsString + ".csv";
-                writer = new CSVWriter(new FileWriter(currentFileName));
-
-                List<String[]> data = new ArrayList<String[]>();
-                data.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "Won"});
-                data.add(new String[]{"India", "New Delhi"});
-    }
-        //mathmatics
-        int cone;
-        int cube;
-        int links;
-        int ticker;
-        int conesLimit = 9;
-        int cubesLimit = 9;
-
-
-
-
-
-        //TeleOp Page
-    public void incrementTeleOpLowerCone(View view){
-        increaseCone(R.id.TeleOpLowConesTicker, bundleValues.TeleOpLowConesTicker, conesLimit);
-    }
-
-    public void incrementTeleOpMiddleCone(View view){
-        increaseCone(R.id.TeleOpMidConeTicker, bundleValues.TeleOpMidConeTicker, conesLimit);
-    }
-
-    public void incrementTeleOpHighCone(View view){
-        increaseCone(R.id.TeleOpHighConeTicker, bundleValues.TeleOpHighConeTicker, conesLimit);
-    }
-
-
-
-    public void incrementTeleOpLowCube(View view){
-        increaseCone(R.id.TeleOpLowCubesTicker, bundleValues.TeleOpLowCubeTicker, conesLimit);
-    }
-
-    public void incrementTeleOpMidCube(View view){
-        increaseCone(R.id.TeleOpMidCubeTicker, bundleValues.TeleOpMidCubeTicker, conesLimit);
-    }
-
-    public void incrementTeleOpHighCube(View view){
-        increaseCone(R.id.TeleOpHighCubeTicker, bundleValues.TeleOpHighCubeTicker, conesLimit);
-    }
-
-    //Auto page
-    public void incrementAutoLowerCone(View view){
-        increaseCone(R.id.AutoLowConeTicker, bundleValues.AutoLowConesTicker, conesLimit);
-    }
-
-    public void incrementAutoMiddleCone(View view){
-        increaseCone(R.id.AutoMidConeTicker, bundleValues.AutoMidConesTicker, conesLimit);
-    }
-
-    public void incrementAutoHighCone(View view){
-        increaseCone(R.id.AutoHighConeTicker, bundleValues.AutoHighConesTicker, conesLimit);
-    }
-
-
-
-    public void incrementAutoLowCube(View view){
-        increaseCone(R.id.AutoLowCubesTicker, bundleValues.AutoLowCubeTicker, conesLimit);
-    }
-
-    public void incrementAutoMidCube(View view){
-        increaseCone(R.id.AutoMidCubeTicker, bundleValues.AutoMidCubeTicker, conesLimit);
-    }
-
-    public void incrementAutoHighCube(View view){
-        increaseCone(R.id.AutoHighCubeTicker, bundleValues.AutoHighCubeTicker, conesLimit);
-    }
-
-
-
-    public void incrementEndgameLowLink(View view){
-        increaseCone(R.id.EndgameLowLinkTicker, bundleValues.EndgameLowLinkTicker, conesLimit);
-    }
-
-    public void incrementEndgameMidLink(View view){
-        increaseCone(R.id.EndgameMidLinkTicker, bundleValues.EndgameMidLinkTicker, conesLimit);
-    }
-
-    public void incrementEndgameHighLink(View view){
-        increaseCone(R.id.EndgameHighLinkTicker, bundleValues.EndgameHighLinkTicker, conesLimit);
-    }
-
-
-    //TODO figure out how to make buttons work in csv. Also need to do intro
-
-
-
-
-
-
-
-
-
-        public void increaseCone(int id, bundleValues bundleLocation ,int conesLimit){
-            final Intent i = getIntent();
-            Bundle bundle = i.getExtras();
-            if (bundle == null) {
-                bundle = new Bundle();
-                bundle.putInt(bundleLocation.toString(), cone);
-                i.putExtras(bundle);
-            }
-
-            if (cone < conesLimit) {
-                cone++;
-                final TextView displayCones = findViewById(id);
-                displayCones.setText("" + cone);
-
-            }
+*/
+        // Try is only for creating the file
+        try {
+            UUID uuid = UUID.randomUUID();
+            String uuidAsString = uuid.toString();
+            String currentFileName = filepath + uuidAsString + ".csv";
+            writer = new CSVWriter(new FileWriter(currentFileName));
+//change capitilazation
+            List<String[]> data = new ArrayList<String[]>();
+            data.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "Won"});
+            data.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor});
         }
-        public void endgameSubmit (View view){
+        catch (IOException e) {
+            e.printStackTrace();
 
-            CSVWriter writer = null;
-            try {
-                UUID uuid = UUID.randomUUID();
-                String uuidAsString = uuid.toString();
-                String currentFileName = filepath + uuidAsString + ".csv";
-                writer = new CSVWriter(new FileWriter(currentFileName));
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setMessage(e.getMessage());
+            alertDialogBuilder.setTitle("File Save Error, Blame Josh Van De Creek");
 
-                List<String[]> data = new ArrayList<String[]>();
-                data.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "Won"});
-                data.add(new String[]{"India", "New Delhi"});
-                data.add(new String[]{"United States", "Washington D.C"});
-                data.add(new String[]{"Germany", "Berlin"});
+            alertDialogBuilder.setNegativeButton("Okay", (dialog, which) -> {
+                finish();
+            });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+
+        }
+    }
+            //mathmatics
+            int cone;
+            int cube;
+            int links;
+            int ticker;
+            int conesLimit = 9;
+            int cubesLimit = 9;
 
 
-                writer.writeAll(data); // data is adding to csv
-
-                writer.close();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                alertDialogBuilder.setMessage(e.getMessage());
-                alertDialogBuilder.setTitle("File Save Error, Blame Josh");
-
-                alertDialogBuilder.setNegativeButton("Okay", (dialog, which) -> {
-                    finish();
-                });
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
-
+            //TeleOp Page
+            public void incrementTeleOpLowerCone (View view){
+                increaseCone(R.id.TeleOpLowConesTicker, bundleValues.TeleOpLowConeTicker, conesLimit);
             }
+
+            public void incrementTeleOpMiddleCone (View view){
+                increaseCone(R.id.TeleOpMidConeTicker, bundleValues.TeleOpMidConeTicker, conesLimit);
+            }
+
+            public void incrementTeleOpHighCone (View view){
+                increaseCone(R.id.TeleOpHighConeTicker, bundleValues.TeleOpHighConeTicker, conesLimit);
+            }
+
+            public void incrementTeleOpLowCube (View view){
+                increaseCone(R.id.TeleOpLowCubesTicker, bundleValues.TeleOpLowCubeTicker, conesLimit);
+            }
+
+            public void incrementTeleOpMidCube (View view){
+                increaseCone(R.id.TeleOpMidCubeTicker, bundleValues.TeleOpMidCubeTicker, conesLimit);
+            }
+
+            public void incrementTeleOpHighCube (View view){
+                increaseCone(R.id.TeleOpHighCubeTicker, bundleValues.TeleOpHighCubeTicker, conesLimit);
+            }
+
+            //Auto page
+            public void incrementAutoLowerCone (View view){
+                increaseCone(R.id.AutoLowConeTicker, bundleValues.AutoLowConesTicker, conesLimit);
+            }
+
+            public void incrementAutoMiddleCone (View view){
+                increaseCone(R.id.AutoMidConeTicker, bundleValues.AutoMidConesTicker, conesLimit);
+            }
+
+            public void incrementAutoHighCone (View view){
+                increaseCone(R.id.AutoHighConeTicker, bundleValues.AutoHighConesTicker, conesLimit);
+            }
+
+
+            public void incrementAutoLowCube (View view){
+                increaseCone(R.id.AutoLowCubesTicker, bundleValues.AutoLowCubeTicker, conesLimit);
+            }
+
+            public void incrementAutoMidCube (View view){
+                increaseCone(R.id.AutoMidCubeTicker, bundleValues.AutoMidCubeTicker, conesLimit);
+            }
+
+            public void incrementAutoHighCube (View view){
+                increaseCone(R.id.AutoHighCubeTicker, bundleValues.AutoHighCubeTicker, conesLimit);
+            }
+
+            public void incrementEndgameLowLink (View view){
+                increaseCone(R.id.EndgameLowLinkTicker, bundleValues.EndgameLowLinkTicker, conesLimit);
+            }
+
+            public void incrementEndgameMidLink (View view){
+                increaseCone(R.id.EndgameMidLinkTicker, bundleValues.EndgameMidLinkTicker, conesLimit);
+            }
+
+            public void incrementEndgameHighLink (View view){
+                increaseCone(R.id.EndgameHighLinkTicker, bundleValues.EndgameHighLinkTicker, conesLimit);
+            }
+
+
+            //TODO figure out how to make buttons work in csv. Also need to do intro
+
+
+            public void increaseCone ( int id, bundleValues bundleLocation ,int conesLimit){
+                final Intent i = getIntent();
+                Bundle bundle = i.getExtras();
+                if (bundle == null) {
+                    bundle = new Bundle();
+                    bundle.putInt(bundleLocation.toString(), cone);
+                    i.putExtras(bundle);
+                }
+
+                if (cone < conesLimit) {
+                    cone++;
+                    final TextView displayCones = findViewById(id);
+                    displayCones.setText("" + cone);
+
+                }
+            }
+
         }
 
 
 
-    }
-}
 
 
 
