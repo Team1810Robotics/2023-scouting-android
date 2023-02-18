@@ -24,9 +24,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.571" />
 
+
+    <ImageView
+        android:layout_width="152dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="635dp"
+        android:layout_marginBottom="32dp"
+        android:background="@color/white"
+        android:src="@drawable/frc_charged_up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+
+
     <EditText
         android:id="@+id/IntroRound"
-        android:text="Enter Here:"
         android:layout_width="153dp"
         android:layout_height="74dp"
         android:layout_marginStart="217dp"
@@ -34,6 +53,7 @@
         android:layout_marginEnd="41dp"
         android:layout_marginBottom="293dp"
         android:ems="10"
+        android:hint="Enter Here:"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +62,6 @@
 
     <EditText
         android:id="@+id/IntroTeam"
-        android:text="Enter Here:"
         android:layout_width="152dp"
         android:layout_height="75dp"
         android:layout_marginStart="218dp"
@@ -50,6 +69,7 @@
         android:layout_marginEnd="41dp"
         android:layout_marginBottom="437dp"
         android:ems="10"
+        android:hint="Enter Team:"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,8 +108,8 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
-        android:layout_marginBottom="628dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="668dp"
         android:text="Intro"
         android:textSize="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -97,6 +117,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>
 
