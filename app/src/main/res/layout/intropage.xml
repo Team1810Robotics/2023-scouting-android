@@ -9,26 +9,30 @@
 
     <Spinner
         android:id="@+id/IntroAlliance"
-        android:layout_width="200dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="150dp"
+        android:layout_width="227dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="559dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="125dp"
         android:entries="@array/alliance_Colors"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/IntroRound"
-        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IntroTeam"
-        app:layout_constraintVertical_bias="0.505" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571" />
 
     <EditText
         android:id="@+id/IntroRound"
-        android:layout_width="127dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="238dp"
-        android:layout_marginTop="371dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginBottom="306dp"
+        android:text="Enter Here:"
+        android:layout_width="153dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="217dp"
+        android:layout_marginTop="364dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="293dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,19 +40,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <EditText
         android:id="@+id/IntroTeam"
-        android:layout_width="127dp"
-        android:layout_height="60dp"
+        android:text="Enter Here:"
+        android:layout_width="152dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="218dp"
+        android:layout_marginTop="219dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="437dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.836"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.329" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/IntroTeamNumber"
@@ -75,6 +81,20 @@
         android:text="Round #"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="69dp"
+        android:layout_marginBottom="628dp"
+        android:text="Intro"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
