@@ -54,12 +54,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
         //mathmatics
-        int cone;
+
         int cube;
         int links;
         int ticker;
-        int conesLimit = 9;
-        int cubesLimit = 9;
+        int conesUpperLimit = 9;
+        int conesLowerLimit = 0;
 
 
 
@@ -67,70 +67,145 @@ public class MainActivity extends AppCompatActivity {
 
         //TeleOp Page
     public void incrementTeleOpLowerCone(View view){
-        increaseCone(R.id.TeleOpLowConesTicker, bundleValues.TeleOpLowConesTicker, conesLimit);
+        increaseCone(R.id.TeleOpLowConesTicker, bundleValues.TeleOpLowConesTicker, conesUpperLimit);
     }
 
     public void incrementTeleOpMiddleCone(View view){
-        increaseCone(R.id.TeleOpMidConeTicker, bundleValues.TeleOpMidConeTicker, conesLimit);
+        increaseCone(R.id.TeleOpMidConeTicker, bundleValues.TeleOpMidConeTicker, conesUpperLimit);
     }
 
     public void incrementTeleOpHighCone(View view){
-        increaseCone(R.id.TeleOpHighConeTicker, bundleValues.TeleOpHighConeTicker, conesLimit);
+        increaseCone(R.id.TeleOpHighConeTicker, bundleValues.TeleOpHighConeTicker, conesUpperLimit);
     }
 
 
 
     public void incrementTeleOpLowCube(View view){
-        increaseCone(R.id.TeleOpLowCubesTicker, bundleValues.TeleOpLowCubeTicker, conesLimit);
+        increaseCone(R.id.TeleOpLowCubesTicker, bundleValues.TeleOpLowCubeTicker, conesUpperLimit);
     }
 
     public void incrementTeleOpMidCube(View view){
-        increaseCone(R.id.TeleOpMidCubeTicker, bundleValues.TeleOpMidCubeTicker, conesLimit);
+        increaseCone(R.id.TeleOpMidCubeTicker, bundleValues.TeleOpMidCubeTicker, conesUpperLimit);
     }
 
     public void incrementTeleOpHighCube(View view){
-        increaseCone(R.id.TeleOpHighCubeTicker, bundleValues.TeleOpHighCubeTicker, conesLimit);
+        increaseCone(R.id.TeleOpHighCubeTicker, bundleValues.TeleOpHighCubeTicker, conesUpperLimit);
     }
 
     //Auto page
     public void incrementAutoLowerCone(View view){
-        increaseCone(R.id.AutoLowConeTicker, bundleValues.AutoLowConesTicker, conesLimit);
+        increaseCone(R.id.AutoLowConeTicker, bundleValues.AutoLowConesTicker, conesUpperLimit);
     }
 
     public void incrementAutoMiddleCone(View view){
-        increaseCone(R.id.AutoMidConeTicker, bundleValues.AutoMidConesTicker, conesLimit);
+        increaseCone(R.id.AutoMidConeTicker, bundleValues.AutoMidConesTicker, conesUpperLimit);
     }
 
     public void incrementAutoHighCone(View view){
-        increaseCone(R.id.AutoHighConeTicker, bundleValues.AutoHighConesTicker, conesLimit);
+        increaseCone(R.id.AutoHighConeTicker, bundleValues.AutoHighConesTicker, conesUpperLimit);
     }
 
 
 
     public void incrementAutoLowCube(View view){
-        increaseCone(R.id.AutoLowCubesTicker, bundleValues.AutoLowCubeTicker, conesLimit);
+        increaseCone(R.id.AutoLowCubesTicker, bundleValues.AutoLowCubeTicker, conesUpperLimit);
     }
 
     public void incrementAutoMidCube(View view){
-        increaseCone(R.id.AutoMidCubeTicker, bundleValues.AutoMidCubeTicker, conesLimit);
+        increaseCone(R.id.AutoMidCubeTicker, bundleValues.AutoMidCubeTicker, conesUpperLimit);
     }
 
     public void incrementAutoHighCube(View view){
-        increaseCone(R.id.AutoHighCubeTicker, bundleValues.AutoHighCubeTicker, conesLimit);
+        increaseCone(R.id.AutoHighCubeTicker, bundleValues.AutoHighCubeTicker, conesUpperLimit);
     }
 
 
-
+    //Endgame Page
     public void incrementEndgameLowLink(View view){
-        increaseCone(R.id.EndgameLowLinkTicker, bundleValues.EndgameLowLinkTicker, conesLimit);
+        increaseCone(R.id.EndgameLowLinkTicker, bundleValues.EndgameLowLinkTicker, conesUpperLimit);
     }
 
     public void incrementEndgameMidLink(View view){
-        increaseCone(R.id.EndgameMidLinkTicker, bundleValues.EndgameMidLinkTicker, conesLimit);
+        increaseCone(R.id.EndgameMidLinkTicker, bundleValues.EndgameMidLinkTicker, conesUpperLimit);
     }
 
     public void incrementEndgameHighLink(View view){
-        increaseCone(R.id.EndgameHighLinkTicker, bundleValues.EndgameHighLinkTicker, conesLimit);
+        increaseCone(R.id.EndgameHighLinkTicker, bundleValues.EndgameHighLinkTicker, conesUpperLimit);
+    }
+
+
+
+    //Decrement
+
+
+
+    //TeleOp Page
+    public void decrementTeleOpLowerCone(View view){
+        decreaseCone(R.id.TeleOpLowConesTicker, bundleValues.TeleOpLowConesTicker, conesLowerLimit);
+    }
+
+    public void decrementTeleOpMiddleCone(View view){
+        decreaseCone(R.id.TeleOpMidConeTicker, bundleValues.TeleOpMidConeTicker, conesLowerLimit);
+    }
+
+    public void decrementTeleOpHighCone(View view){
+        decreaseCone(R.id.TeleOpHighConeTicker, bundleValues.TeleOpHighConeTicker, conesLowerLimit);
+    }
+
+
+
+    public void decrementTeleOpLowCube(View view){
+        decreaseCone(R.id.TeleOpLowCubesTicker, bundleValues.TeleOpLowCubeTicker, conesLowerLimit);
+    }
+
+    public void decrementTeleOpMidCube(View view){
+        decreaseCone(R.id.TeleOpMidCubeTicker, bundleValues.TeleOpMidCubeTicker, conesLowerLimit);
+    }
+
+    public void decrementTeleOpHighCube(View view){
+        decreaseCone(R.id.TeleOpHighCubeTicker, bundleValues.TeleOpHighCubeTicker, conesLowerLimit);
+    }
+
+    //Auto page
+    public void decrementAutoLowerCone(View view){
+        decreaseCone(R.id.AutoLowConeTicker, bundleValues.AutoLowConesTicker, conesLowerLimit);
+    }
+
+    public void decrementAutoMiddleCone(View view){
+        decreaseCone(R.id.AutoMidConeTicker, bundleValues.AutoMidConesTicker, conesLowerLimit);
+    }
+
+
+    public void decrementAutoHighCone(View view){
+        decreaseCone(R.id.AutoHighConeTicker, bundleValues.AutoHighConesTicker, conesLowerLimit);
+    }
+
+
+
+    public void decrementAutoLowCube(View view){
+        decreaseCone(R.id.AutoLowCubesTicker, bundleValues.AutoLowCubeTicker, conesLowerLimit);
+    }
+
+    public void decrementAutoMidCube(View view){
+        decreaseCone(R.id.AutoMidCubeTicker, bundleValues.AutoMidCubeTicker, conesLowerLimit);
+    }
+
+    public void decrementAutoHighCube(View view){
+        decreaseCone(R.id.AutoHighCubeTicker, bundleValues.AutoHighCubeTicker, conesLowerLimit);
+    }
+
+
+    //Endgame Page
+    public void decrementEndgameLowLink(View view){
+        decreaseCone(R.id.EndgameLowLinkTicker, bundleValues.EndgameLowLinkTicker, conesLowerLimit);
+    }
+
+    public void decrementEndgameMidLink(View view){
+        decreaseCone(R.id.EndgameMidLinkTicker, bundleValues.EndgameMidLinkTicker, conesLowerLimit);
+    }
+
+    public void decrementEndgameHighLink(View view){
+        decreaseCone(R.id.EndgameHighLinkTicker, bundleValues.EndgameHighLinkTicker, conesLowerLimit);
     }
 
 
@@ -149,17 +224,46 @@ public class MainActivity extends AppCompatActivity {
             Bundle bundle = i.getExtras();
             if (bundle == null) {
                 bundle = new Bundle();
-                bundle.putInt(bundleLocation.toString(), cone);
+            }
+
+            int tempConeValue = bundle.getInt(bundleLocation.toString(), 0);
+            if (tempConeValue < conesUpperLimit) {
+                tempConeValue++;
+                final TextView displayCones = findViewById(id);
+                displayCones.setText("" + tempConeValue);
+
+                bundle.putInt(bundleLocation.toString(), tempConeValue);
                 i.putExtras(bundle);
             }
 
-            if (cone < conesLimit) {
-                cone++;
-                final TextView displayCones = findViewById(id);
-                displayCones.setText("" + cone);
-
-            }
         }
+
+
+
+
+
+    public void decreaseCone(int id, bundleValues bundleLocation ,int conesLimit){
+        final Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        if (bundle == null) {
+            bundle = new Bundle();
+
+        }
+        int tempConeValue = bundle.getInt(bundleLocation.toString(), 0);
+        if (tempConeValue > conesLowerLimit) {
+            tempConeValue--;
+            final TextView displayCones = findViewById(id);
+            displayCones.setText("" + tempConeValue);
+
+
+            bundle.putInt(bundleLocation.toString(), tempConeValue);
+            i.putExtras(bundle);
+        }
+    }
+
+
+
+
         public void endgameSubmit (View view){
 
             CSVWriter writer = null;
@@ -217,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
         if (bundle == null) {
             bundle = new Bundle();
         }
-//test comment
+//the code after Bennett's code be like: https://www.youtube.com/watch?v=nC3jilxNyes
       //  final DataModel data = new DataModel();
   */
 

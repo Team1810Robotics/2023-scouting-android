@@ -2,7 +2,6 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.EndGame">
@@ -10,8 +9,9 @@
 
     <Button
         android:id="@+id/EndgameLowLinkMinus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="86dp"
+        android:layout_height="46dp"
+        android:onClick="decrementEndgameLowLink"
         android:text="-"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,10 +31,10 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.212"
+        app:layout_constraintVertical_bias="0.192"
         tools:layout_conversion_absoluteHeight="34dp"
         tools:layout_conversion_absoluteWidth="47dp" />
 
@@ -46,7 +46,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.697"
+        app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.2"
@@ -55,43 +55,46 @@
 
     <Button
         android:id="@+id/EndgameLowLinkPlus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="86dp"
+        android:layout_height="46dp"
+        android:onClick="incrementEndgameMidLink"
         android:text="+"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.184"
+        app:layout_constraintVertical_bias="0.278"
         tools:layout_conversion_absoluteHeight="55dp"
         tools:layout_conversion_absoluteWidth="61dp" />
 
     <Button
         android:id="@+id/EndgameHighLinkMinus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="86dp"
+        android:layout_height="46dp"
+        android:onClick="decrementEndgameHighLink"
         android:text="-"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.953"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.366"
+        app:layout_constraintVertical_bias="0.367"
         tools:layout_conversion_absoluteHeight="54dp"
         tools:layout_conversion_absoluteWidth="60dp" />
 
     <Button
         android:id="@+id/EndgameHighLinkPlus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="87dp"
+        android:layout_height="46dp"
+        android:onClick="incrementEndgameHighLink"
         android:text="+"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.366"
@@ -121,7 +124,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.697"
+        app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.375"
@@ -130,8 +133,9 @@
 
     <Button
         android:id="@+id/EndgameMidLinkMinus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="86dp"
+        android:layout_height="46dp"
+        android:onClick="decrementEndgameMidLink"
         android:text="-"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -139,7 +143,7 @@
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276"
+        app:layout_constraintVertical_bias="0.278"
         tools:layout_conversion_absoluteHeight="54dp"
         tools:layout_conversion_absoluteWidth="60dp" />
 
@@ -151,7 +155,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.697"
+        app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.288"
@@ -160,50 +164,19 @@
 
     <Button
         android:id="@+id/EndgameMidLinkPlus"
-        android:layout_width="83dp"
-        android:layout_height="48dp"
+        android:layout_width="86dp"
+        android:layout_height="46dp"
+        android:onClick="incrementEndgameLowLink"
         android:text="+"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276"
-        tools:layout_conversion_absoluteHeight="55dp"
+        app:layout_constraintVertical_bias="0.186"
+        tools:layout_conversion_absoluteHeight="86dp"
         tools:layout_conversion_absoluteWidth="61dp" />
-
-    <TextView
-        android:id="@+id/didTheirTeamWin"
-        android:layout_width="188dp"
-        android:layout_height="24dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Did their team Win?"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.855"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.649"
-        tools:layout_conversion_absoluteHeight="56dp"
-        tools:layout_conversion_absoluteWidth="138dp" />
-
-    <CheckBox
-
-        android:id="@+id/EndgameDidTheyWinBox"
-        android:layout_width="140dp"
-        android:layout_height="46dp"
-        android:text="Check if Yes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715"
-        tools:layout_conversion_absoluteHeight="61dp"
-        tools:layout_conversion_absoluteWidth="126dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -241,7 +214,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Notes"
+        android:text="Notes:"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -282,34 +255,48 @@
         tools:layout_conversion_absoluteHeight="71dp"
         tools:layout_conversion_absoluteWidth="251dp" />
 
-    <TextView
-        android:id="@+id/textView58"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cooperatition Bonus"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.649"
-        tools:layout_conversion_absoluteHeight="28dp"
-        tools:layout_conversion_absoluteWidth="140dp" />
-
     <CheckBox
         android:id="@+id/EndgameCooperatitionBounusBox"
         android:layout_width="139dp"
         android:layout_height="44dp"
-        android:text="Check if Yes"
+        android:text="Cooperatition Bonus"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.713"
+        app:layout_constraintVertical_bias="0.74"
         tools:layout_conversion_absoluteHeight="61dp"
         tools:layout_conversion_absoluteWidth="136dp" />
+
+    <CheckBox
+
+        android:id="@+id/EndgameDidTheyWinBox"
+        android:layout_width="140dp"
+        android:layout_height="46dp"
+        android:text="Win"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.837"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.743"
+        tools:layout_conversion_absoluteHeight="61dp"
+        tools:layout_conversion_absoluteWidth="126dp" />
+
+    <CheckBox
+        android:id="@+id/EndgameEngagedBox"
+        android:layout_width="122dp"
+        android:layout_height="48dp"
+        android:text="Engaged"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.945"
+        tools:layout_conversion_absoluteHeight="55dp"
+        tools:layout_conversion_absoluteWidth="107dp" />
 
     <CheckBox
         android:id="@+id/EndgameDockedBox"
@@ -318,25 +305,12 @@
         android:text="Docked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.788"
+        app:layout_constraintVertical_bias="0.876"
         tools:layout_conversion_absoluteHeight="50dp"
         tools:layout_conversion_absoluteWidth="98dp" />
-
-    <CheckBox
-        android:id="@+id/EndgameEngagedBox"
-        android:layout_width="115dp"
-        android:layout_height="40dp"
-        android:text="Engaged"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.848"
-        tools:layout_conversion_absoluteHeight="55dp"
-        tools:layout_conversion_absoluteWidth="107dp" />
 
     <Button
         android:id="@+id/EndgameSubmitButton"
