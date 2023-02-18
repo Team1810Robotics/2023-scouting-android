@@ -12,9 +12,8 @@ public enum bundleValues {
         AutoLeftCommunity,AutoDocked,AutoEngaged,
 
 
-             TeleOpLowConesTicker,TeleOpMidConeTicker,TeleOpHighConeTicker,
+             TeleOpLowConeTicker,TeleOpMidConeTicker,TeleOpHighConeTicker,
              TeleOpLowCubeTicker,TeleOpMidCubeTicker,TeleOpHighCubeTicker,
-
              TeleOpRoleDrop,TeleOpNaughtyCheck,
 
 
