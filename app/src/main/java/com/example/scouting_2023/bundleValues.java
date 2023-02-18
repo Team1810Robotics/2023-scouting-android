@@ -13,6 +13,7 @@ public enum bundleValues {
 
 
              TeleOpLowConeTicker,TeleOpMidConeTicker,TeleOpHighConeTicker,
+
              TeleOpLowCubeTicker,TeleOpMidCubeTicker,TeleOpHighCubeTicker,
              TeleOpRoleDrop,TeleOpNaughtyCheck,
 
@@ -20,16 +21,5 @@ public enum bundleValues {
             EndgameLowLinkTicker,EndgameMidLinkTicker,EndgameHighLinkTicker,
 
             EndgameTotalScoreBox,EndgameCooperatitionBounusBox,EndgameDidTheyWinBox,EndgameDockedBox,EndgameEngagedBox
-
-
-
-
-
-
-
-
-
-
-
 
 }
