@@ -12,27 +12,14 @@ public enum bundleValues {
         AutoLeftCommunity,AutoDocked,AutoEngaged,
 
 
-
              TeleOpLowConeTicker,TeleOpMidConeTicker,TeleOpHighConeTicker,
 
              TeleOpLowCubeTicker,TeleOpMidCubeTicker,TeleOpHighCubeTicker,
-
              TeleOpRoleDrop,TeleOpNaughtyCheck,
 
 
             EndgameLowLinkTicker,EndgameMidLinkTicker,EndgameHighLinkTicker,
 
             EndgameTotalScoreBox,EndgameCooperatitionBounusBox,EndgameDidTheyWinBox,EndgameDockedBox,EndgameEngagedBox
-
-
-
-
-
-
-
-
-
-
-
 
 }
