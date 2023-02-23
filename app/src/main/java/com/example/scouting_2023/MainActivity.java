@@ -8,9 +8,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.scouting_2023.databinding.ActivityMainBinding;
+import com.example.scouting_2023.ui.main.EndGame;
 import com.example.scouting_2023.ui.main.MyAdapter;
 import com.opencsv.CSVWriter;
 
@@ -19,15 +21,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
+import android.view.View.OnClickListener;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     TabLayout tabLayout;
     ViewPager viewPager;
     String fileName = "/chargedUp-";
-    String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + fileName); // change
-
+    //String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + fileName); // change
+    String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + fileName);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +53,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
             }
+
+
+
         });
+
+
     }
+
+
+
+
+
         //mathmatics
 
         int cube;
@@ -269,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        //   final DataModel data = new DataModel();
+       final DataModel data = new DataModel();
 
         CSVWriter writer = null;
         //Populating the bundles
@@ -331,15 +343,15 @@ public class MainActivity extends AppCompatActivity {
             String currentFileName = filepath + uuidAsString + ".csv";
             writer = new CSVWriter(new FileWriter(currentFileName));
 //change capitilazation
-            List<String[]> data = new ArrayList<String[]>();
-            data.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "Won"});
-            data.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube});
+            List<String[]> outputdata = new ArrayList<String[]>();
+            outputdata.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleInComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "EndGamePoints", "EndGameCoopertition", "EndGameLinkLow", "EndGameLinkMid", "EndGameLinkHigh", "Won"});
+            outputdata.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube});
             //confirmation message
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setMessage("Press Okay to Return to Start, Thank a Programmer");
             alertDialogBuilder.setTitle("Submitted");
 
-            writer.writeAll(data); // data is adding to csv
+            writer.writeAll(outputdata); // data is adding to csv
 
             writer.close();
 //          callRead();

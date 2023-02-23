@@ -214,7 +214,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Notes:"
+        android:hint="Enter Here"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -253,7 +253,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.517"
         tools:layout_conversion_absoluteHeight="71dp"
-        tools:layout_conversion_absoluteWidth="251dp" />
+        tools:layout_conversion_absoluteWidth="251dp"
+        android:hint="Enter Here"/>
 
     <CheckBox
         android:id="@+id/EndgameCooperatitionBounusBox"
@@ -325,7 +326,7 @@
         app:layout_constraintVertical_bias="0.038"
         tools:layout_conversion_absoluteHeight="52dp"
         tools:layout_conversion_absoluteWidth="107dp"
-        android:onClick="endgameSubmit" />
+         />
 
     <TextView
         android:id="@+id/textView3"
