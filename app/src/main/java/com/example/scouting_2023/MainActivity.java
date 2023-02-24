@@ -7,12 +7,15 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.view.View.OnFocusChangeListener;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.scouting_2023.databinding.ActivityMainBinding;
-import com.example.scouting_2023.ui.main.EndGame;
 import com.example.scouting_2023.ui.main.MyAdapter;
 import com.opencsv.CSVWriter;
 
@@ -21,7 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import android.view.View.OnClickListener;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -30,6 +33,31 @@ public class MainActivity extends AppCompatActivity {
     String fileName = "/chargedUp-";
     //String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + fileName); // change
     String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + fileName);
+
+    //Global access tp UI Elements
+    //TODO: Add onChange/equivalent listeners to update these on update to set the bundle - access on submit
+    public EditText txtTeamNum = (EditText)findViewById(R.id.IntroTeam);
+    public EditText txtMatchNum= (EditText)findViewById(R.id.IntroRound);
+    public Spinner spnAlliance= (Spinner)findViewById(R.id.IntroAlliance);
+    public Spinner spnRole = (Spinner)findViewById(R.id.TeleopRoleDrop);
+    public EditText txtNotes = (EditText)findViewById(R.id.EndgameNoteButton);
+    public EditText txtScore = (EditText)findViewById(R.id.EndgameTotalScoreBox);
+    public CheckBox chkLeftComm = (CheckBox)findViewById(R.id.AutoLeftCommunity);
+    public CheckBox chkAutoDocked = (CheckBox)findViewById(R.id.AutoDocked);
+    public CheckBox chkAutoEngaged = (CheckBox)findViewById(R.id.AutoEngaged);
+    public CheckBox chkWin = (CheckBox)findViewById(R.id.EndgameDidTheyWinBox);
+    public CheckBox chkDirty = (CheckBox)findViewById(R.id.TeleOpNaughtyCheck);
+    public CheckBox chkEndgameDocked = (CheckBox)findViewById(R.id.EndgameDockedBox);
+    public CheckBox chkEndgameEngaged = (CheckBox)findViewById(R.id.EndgameEngagedBox);
+    public CheckBox chkCoopertition = (CheckBox)findViewById(R.id.EndgameCooperatitionBounusBox);
+
+
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -277,6 +305,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void endgameSubmit(View view) {
+
+
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) {
             bundle = new Bundle();
@@ -286,10 +316,10 @@ public class MainActivity extends AppCompatActivity {
         CSVWriter writer = null;
         //Populating the bundles
 
-        //IntroPage Bundle
-        String tmpMatchID = bundle.getString(bundleValues.IntroRoundNumber.toString());
-        String tmpTeamID = bundle.getString(bundleValues.IntroTeamNumber.toString());
-        String tmpAllianceColor = bundle.getString(bundleValues.IntroAllianceColor.toString());
+       // String tmpTeamIDX = findViewById(R.id.IntroTeam).toString();
+        //IntroPage Bundle =String tmpMatchID = bundle.getString(bundleValues.IntroRoundNumber.toString(), 0);
+     //   String tmpTeamID = bundle.getString(bundleValues.IntroTeamNumber.toString());
+      //  String tmpAllianceColor = bundle.getString(bundleValues.IntroAllianceColor.toString());
 
         //AutoPage Bundle
         String tmpAutoHighCone = bundle.getString(bundleValues.AutoHighConesTicker.toString());
@@ -302,6 +332,7 @@ public class MainActivity extends AppCompatActivity {
         String tmpAutoEngaged = bundle.getString(bundleValues.AutoEngaged.toString());
         String tmpAutoLeft = bundle.getString(bundleValues.AutoLeftCommunity.toString());
 
+        Log.d("variable", "hi");
 
         // data.setMatchID(bundle.getInt(bundleValues.IntroRoundNumber.toString(), 0));
 
@@ -345,7 +376,7 @@ public class MainActivity extends AppCompatActivity {
 //change capitilazation
             List<String[]> outputdata = new ArrayList<String[]>();
             outputdata.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleInComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "EndGamePoints", "EndGameCoopertition", "EndGameLinkLow", "EndGameLinkMid", "EndGameLinkHigh", "Won"});
-            outputdata.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube});
+            outputdata.add(new String[]{"1", "2", "3", "4", "5", "6", "7", "8"});
             //confirmation message
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setMessage("Press Okay to Return to Start, Thank a Programmer");
