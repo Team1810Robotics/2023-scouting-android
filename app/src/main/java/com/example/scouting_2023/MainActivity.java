@@ -316,6 +316,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        //Endgame
+        String tmpEndgameHighLink = bundle.getString(bundleValues.EndgameHighLinkTicker.toString());
+        String tmpEndgameMidLink = bundle.getString(bundleValues.EndgameMidLinkTicker.toString());
+        String tmpEndgameLowLink = bundle.getString(bundleValues.EndgameLowLinkTicker.toString());
+
+        String tmpEndgameTotalScoreBox = bundle.getString(bundleValues.EndgameTotalScoreBox.toString());
+        String tmpEndgameCooperatitionBounusBox = bundle.getString(bundleValues.EndgameCooperatitionBounusBox.toString());
+        String tmpEndgameDidTheyWinBox = bundle.getString(bundleValues.EndgameDidTheyWinBox.toString());
+        String tmpEndgameDockedBox = bundle.getString(bundleValues.EndgameDockedBox.toString());
+        String tmpEndgameEngagedBox= bundle.getString(bundleValues.EndgameEngagedBox.toString());
 
         // data.setMatchID(bundle.getInt(bundleValues.IntroRoundNumber.toString(), 0));
 
