@@ -1,13 +1,15 @@
 package com.example.scouting_2023;
 
-public class DataModel {
+import android.arch.lifecycle.ViewModel;
+
+public class DataModel extends ViewModel {
 //  Declare variables
 
 
 //  Intro
     private int teamID;
     private String allianceColor;
-    private int roundNumbers;
+    private int roundNumber;
 //  Auto
     private int autoLowCones;
     private int autoLowCubes;
@@ -44,8 +46,8 @@ public class DataModel {
     //Get functions
 
         //Intro
-        public int getRoundNumbers() {
-            return roundNumbers;
+        public int getRoundNumber() {
+            return roundNumber;
         }
         public String getAllianceColor() {return allianceColor;}
         public int getTeamID() {
@@ -82,10 +84,14 @@ public class DataModel {
         public int getendgamePoints() {return endgamePoints;}
         public boolean getcoopertition(){return coopertition;}
     //Set Functions
-
         //Intro
-        public void setRoundNumbers(final int roundNumbers) {
-            this.roundNumbers = roundNumbers;
+
+        //Auto
+        //TeleOp
+        //Final
+        //Intro
+        public void setRoundNumber(final int roundNumber) {
+            this.roundNumber = roundNumber;
         }
         public void setAllianceColor(final int AllianceColor) {this.allianceColor = allianceColor;}
         public void setTeamID(final int TeamID) {this.teamID = TeamID;}
