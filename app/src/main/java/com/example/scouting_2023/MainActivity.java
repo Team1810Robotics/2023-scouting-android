@@ -8,11 +8,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.scouting_2023.databinding.ActivityMainBinding;
-import com.example.scouting_2023.ui.main.EndGame;
 import com.example.scouting_2023.ui.main.MyAdapter;
 import com.opencsv.CSVWriter;
 
@@ -21,7 +19,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import android.view.View.OnClickListener;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -302,6 +299,16 @@ public class MainActivity extends AppCompatActivity {
         String tmpAutoEngaged = bundle.getString(bundleValues.AutoEngaged.toString());
         String tmpAutoLeft = bundle.getString(bundleValues.AutoLeftCommunity.toString());
 
+        //Endgame
+        String tmpEndgameHighLink = bundle.getString(bundleValues.EndgameHighLinkTicker.toString());
+        String tmpEndgameMidLink = bundle.getString(bundleValues.EndgameMidLinkTicker.toString());
+        String tmpEndgameLowLink = bundle.getString(bundleValues.EndgameLowLinkTicker.toString());
+
+        String tmpEndgameTotalScoreBox = bundle.getString(bundleValues.EndgameTotalScoreBox.toString());
+        String tmpEndgameCooperatitionBounusBox = bundle.getString(bundleValues.EndgameCooperatitionBounusBox.toString());
+        String tmpEndgameDidTheyWinBox = bundle.getString(bundleValues.EndgameDidTheyWinBox.toString());
+        String tmpEndgameDockedBox = bundle.getString(bundleValues.EndgameDockedBox.toString());
+        String tmpEndgameEngagedBox= bundle.getString(bundleValues.EndgameEngagedBox.toString());
 
         // data.setMatchID(bundle.getInt(bundleValues.IntroRoundNumber.toString(), 0));
 
