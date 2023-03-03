@@ -299,6 +299,19 @@ public class MainActivity extends AppCompatActivity {
         String tmpAutoEngaged = bundle.getString(bundleValues.AutoEngaged.toString());
         String tmpAutoLeft = bundle.getString(bundleValues.AutoLeftCommunity.toString());
 
+        //TeleOp
+
+        String tmpTeleOpHighCone = bundle.getString(bundleValues.TeleOpHighConeTicker.toString());
+        String tmpTeleOpHighCube = bundle.getString(bundleValues.TeleOpHighCubeTicker.toString());
+        String tmpTeleOpMidCone = bundle.getString(bundleValues.TeleOpMidConeTicker.toString());
+        String tmpTeleOpMidCube = bundle.getString(bundleValues.TeleOpMidCubeTicker.toString());
+        String tmpTeleOpLowCone = bundle.getString(bundleValues.TeleOpLowConeTicker.toString());
+        String tmpTeleOpLowCube = bundle.getString(bundleValues.TeleOpLowCubeTicker.toString());
+
+        String tmpTeleOpRoleDrop = bundle.getString(bundleValues. TeleOpRoleDrop.toString());
+        String tmpTeleOpNaughtyCheck= bundle.getString(bundleValues.TeleOpNaughtyCheck.toString());
+
+
         //Endgame
         String tmpEndgameHighLink = bundle.getString(bundleValues.EndgameHighLinkTicker.toString());
         String tmpEndgameMidLink = bundle.getString(bundleValues.EndgameMidLinkTicker.toString());
