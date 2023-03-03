@@ -7,6 +7,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,8 +15,10 @@ import com.example.scouting_2023.databinding.ActivityMainBinding;
 import com.example.scouting_2023.ui.main.MyAdapter;
 import com.opencsv.CSVWriter;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     String fileName = "/chargedUp-";
-    String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + fileName); // change
+    String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + fileName); // change
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -274,21 +277,44 @@ public class MainActivity extends AppCompatActivity {
         CSVWriter writer = null;
         //Populating the bundles
 
+        //TODO: Finish all of the variables
+
         //IntroPage Bundle
-        String tmpMatchID = bundle.getString(bundleValues.IntroRoundNumber.toString());
-        String tmpTeamID = bundle.getString(bundleValues.IntroTeamNumber.toString());
+        String tmpMatchID = bundle.getString(bundleValues.IntroRoundNumber.toString(), "");
+        String tmpTeamID = bundle.getString(bundleValues.IntroTeamNumber.toString(), "");
         String tmpAllianceColor = bundle.getString(bundleValues.IntroAllianceColor.toString());
+        String tmpAutoLeft = bundle.getString(bundleValues.AutoLeftCommunity.toString());
 
         //AutoPage Bundle
-        String tmpAutoHighCone = bundle.getString(bundleValues.AutoHighConesTicker.toString());
-        String tmpAutoHighCube = bundle.getString(bundleValues.AutoHighCubeTicker.toString());
-        String tmpAutoMidCone = bundle.getString(bundleValues.AutoMidConesTicker.toString());
-        String tmpAutoMidCube = bundle.getString(bundleValues.AutoMidCubeTicker.toString());
-        String tmpAutoLowCone = bundle.getString(bundleValues.AutoLowConesTicker.toString());
-        String tmpAutoLowCube = bundle.getString(bundleValues.AutoLowCubeTicker.toString());
-        String tmpAutoDocked = bundle.getString(bundleValues.AutoDocked.toString());
-        String tmpAutoEngaged = bundle.getString(bundleValues.AutoEngaged.toString());
-        String tmpAutoLeft = bundle.getString(bundleValues.AutoLeftCommunity.toString());
+        String tmpAutoHighCone = bundle.getString(bundleValues.AutoHighConesTicker.toString(), "");
+        String tmpAutoHighCube = bundle.getString(bundleValues.AutoHighCubeTicker.toString(), "");
+        String tmpAutoMidCone = bundle.getString(bundleValues.AutoMidConesTicker.toString(), "");
+        String tmpAutoMidCube = bundle.getString(bundleValues.AutoMidCubeTicker.toString(), "");
+        String tmpAutoLowCone = bundle.getString(bundleValues.AutoLowConesTicker.toString(), "");
+        String tmpAutoLowCube = bundle.getString(bundleValues.AutoLowCubeTicker.toString(), "");
+        String tmpAutoDocked = bundle.getString(bundleValues.AutoDocked.toString(), "");
+        String tmpAutoEngaged = bundle.getString(bundleValues.AutoEngaged.toString(), "");
+
+        String[] submitVariable = new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone,
+                tmpAutoMidCube, tmpAutoHighCone, tmpAutoHighCube};
+        String[] headers = new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube",
+                "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm",
+                "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone",
+                "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked",
+                "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "Won"};
+
+        int listLength = submitVariable.length;
+
+        for (int i = 0; i < listLength; i++) {
+            try {
+                Log.d("didItWork", "yea :D");
+                Log.d("" + headers[i+3], "" + submitVariable[i]);
+            } catch (Exception e) {
+                Log.d("didItWork", headers[i+3] + " can't be printed :/");
+            }
+        }
+
+
 
 
         // data.setMatchID(bundle.getInt(bundleValues.IntroRoundNumber.toString(), 0));
@@ -324,7 +350,11 @@ public class MainActivity extends AppCompatActivity {
             data.setEndgameScore(bundle.getInt(bundleValues.EndgameTotalScoreBox.toString(), 0));
             data.setEndgameCoopertition(bundle.getBoolean(bundleValues.EndgameCooperatitionBounusBox.toString(), false));
 */
+        UUID uuid = UUID.randomUUID();
+        String uuidAsString = uuid.toString();
+        String currentFileName = filepath + uuidAsString + ".csv";
         // Try is only for creating the file
+
         try {
             UUID uuid = UUID.randomUUID();
             String uuidAsString = uuid.toString();
@@ -343,6 +373,20 @@ public class MainActivity extends AppCompatActivity {
 
             writer.writeAll(data); // data is adding to csv
             writer.close();
+//Noah's updateds 3/1/23
+//        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(currentFileName))) {
+//            for (var row : data) {
+//                writer.write(String.join(",", row) + "\n");
+//            }
+//            writer = new CSVWriter(new FileWriter(currentFileName));
+////change capitilazation
+//            List<String[]> data = new ArrayList<String[]>();
+//            List().add(new Number[]{1,2,2,3});
+//            //confirmation message
+//
+//            writer.writeAll(data); // data is adding to csv
+//
+//            writer.close();
 //          callRead();
 
             alertDialogBuilder.setNegativeButton("Okay", (dialog, which) -> {
