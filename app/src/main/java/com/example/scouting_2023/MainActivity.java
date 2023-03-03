@@ -350,9 +350,7 @@ public class MainActivity extends AppCompatActivity {
             data.setEndgameScore(bundle.getInt(bundleValues.EndgameTotalScoreBox.toString(), 0));
             data.setEndgameCoopertition(bundle.getBoolean(bundleValues.EndgameCooperatitionBounusBox.toString(), false));
 */
-        UUID uuid = UUID.randomUUID();
-        String uuidAsString = uuid.toString();
-        String currentFileName = filepath + uuidAsString + ".csv";
+
         // Try is only for creating the file
 
         try {
@@ -363,7 +361,7 @@ public class MainActivity extends AppCompatActivity {
 //change capitilazation
             List<String[]> data = new ArrayList<String[]>();
 
-            data.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay","EndgGameLow","EndGameMid","EndGameLow","EndGameScore", "EndGameNotes", "Won"});
+            data.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay","EndGameLow","EndGameMid","EndGameHigh","EndGameScore", "EndGameNotes", "CoopertitionBonus", "Won"});
             data.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube});
            
            //confirmation message
