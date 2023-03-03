@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     TabLayout tabLayout;
     ViewPager viewPager;
-    String fileName = "/chargedUp";
+    String fileName = "/chargedUp-";
     String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + fileName); // change
 
     @Override
@@ -332,8 +332,26 @@ public class MainActivity extends AppCompatActivity {
             writer = new CSVWriter(new FileWriter(currentFileName));
 //change capitilazation
             List<String[]> data = new ArrayList<String[]>();
+
             data.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay","EndgGameLow","EndGameMid","EndGameLow","EndGameScore", "EndGameNotes", "Won"});
-            data.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor});
+            data.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube});
+           
+           //confirmation message
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setMessage("Press Okay to Return to Start, Thank a Programmer");
+            alertDialogBuilder.setTitle("Submitted");
+
+            writer.writeAll(data); // data is adding to csv
+            writer.close();
+//          callRead();
+
+            alertDialogBuilder.setNegativeButton("Okay", (dialog, which) -> {
+                final Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+            });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -350,12 +368,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+        BundleUtils.resetBundleValues(bundle);
     }
-
-
-
-
-
 }
 
 
