@@ -15,10 +15,8 @@ import com.example.scouting_2023.databinding.ActivityMainBinding;
 import com.example.scouting_2023.ui.main.MyAdapter;
 import com.opencsv.CSVWriter;
 
-import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -295,25 +293,6 @@ public class MainActivity extends AppCompatActivity {
         String tmpAutoDocked = bundle.getString(bundleValues.AutoDocked.toString(), "");
         String tmpAutoEngaged = bundle.getString(bundleValues.AutoEngaged.toString(), "");
 
-        String[] submitVariable = new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone,
-                tmpAutoMidCube, tmpAutoHighCone, tmpAutoHighCube};
-        String[] headers = new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube",
-                "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm",
-                "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone",
-                "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked",
-                "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "Won"};
-
-        int listLength = submitVariable.length;
-
-        for (int i = 0; i < listLength; i++) {
-            try {
-                Log.d("didItWork", "yea :D");
-                Log.d("" + headers[i+3], "" + submitVariable[i]);
-            } catch (Exception e) {
-                Log.d("didItWork", headers[i+3] + " can't be printed :/");
-            }
-        }
-
 
 
         //TeleOp
@@ -339,6 +318,36 @@ public class MainActivity extends AppCompatActivity {
         String tmpEndgameDidTheyWinBox = bundle.getString(bundleValues.EndgameDidTheyWinBox.toString());
         String tmpEndgameDockedBox = bundle.getString(bundleValues.EndgameDockedBox.toString());
         String tmpEndgameEngagedBox= bundle.getString(bundleValues.EndgameEngagedBox.toString());
+
+
+
+
+
+
+
+
+        String[] submitVariable = new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone,
+                tmpAutoMidCube, tmpAutoHighCone, tmpAutoHighCube};
+        String[] headers = new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube",
+                "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm",
+                "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone",
+                "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked",
+                "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "Won"};
+
+        int listLength = submitVariable.length;
+
+        for (int i = 0; i < listLength; i++) {
+            try {
+                Log.d("didItWork", "yea :D");
+                Log.d("" + headers[i+3], "" + submitVariable[i]);
+            } catch (Exception e) {
+                Log.d("didItWork", headers[i+3] + " can't be printed :/");
+            }
+        }
+
+
+
+
 
         // data.setMatchID(bundle.getInt(bundleValues.IntroRoundNumber.toString(), 0));
 
