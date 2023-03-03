@@ -332,7 +332,7 @@ public class MainActivity extends AppCompatActivity {
             writer = new CSVWriter(new FileWriter(currentFileName));
 //change capitilazation
             List<String[]> data = new ArrayList<String[]>();
-            data.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "Won"});
+            data.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay","EndgGameLow","EndGameMid","EndGameLow","EndGameScore", "EndGameNotes", "Won"});
             data.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor});
         }
         catch (IOException e) {
