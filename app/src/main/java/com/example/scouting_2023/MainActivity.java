@@ -354,20 +354,35 @@ public class MainActivity extends AppCompatActivity {
         String uuidAsString = uuid.toString();
         String currentFileName = filepath + uuidAsString + ".csv";
         // Try is only for creating the file
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(currentFileName))) {
-//            for (var row : data) {
-//                writer.write(String.join(",", row) + "\n");
-//            }
 
-//            writer = new CSVWriter(new FileWriter(currentFileName));
-////change capitilazation
-//            List<String[]> data = new ArrayList<String[]>();
-//            data.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "Won"});
-//            List().add(new Number[]{1,2,2,3});
-//            //confirmation message
+        try {
+            UUID uuid = UUID.randomUUID();
+            String uuidAsString = uuid.toString();
+            String currentFileName = filepath + uuidAsString + ".csv";
+            writer = new CSVWriter(new FileWriter(currentFileName));
+//change capitilazation
+            List<String[]> data = new ArrayList<String[]>();
+
+            data.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay","EndgGameLow","EndGameMid","EndGameLow","EndGameScore", "EndGameNotes", "Won"});
+            data.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube});
+           
+           //confirmation message
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setMessage("Press Okay to Return to Start, Thank a Programmer");
             alertDialogBuilder.setTitle("Submitted");
+
+            writer.writeAll(data); // data is adding to csv
+            writer.close();
+//Noah's updateds 3/1/23
+//        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(currentFileName))) {
+//            for (var row : data) {
+//                writer.write(String.join(",", row) + "\n");
+//            }
+//            writer = new CSVWriter(new FileWriter(currentFileName));
+////change capitilazation
+//            List<String[]> data = new ArrayList<String[]>();
+//            List().add(new Number[]{1,2,2,3});
+//            //confirmation message
 //
 //            writer.writeAll(data); // data is adding to csv
 //
@@ -380,6 +395,7 @@ public class MainActivity extends AppCompatActivity {
             });
             AlertDialog alertDialog = alertDialogBuilder.create();
             alertDialog.show();
+
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -398,11 +414,6 @@ public class MainActivity extends AppCompatActivity {
         }
         BundleUtils.resetBundleValues(bundle);
     }
-
-
-
-
-
 }
 
 
