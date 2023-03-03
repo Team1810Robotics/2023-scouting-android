@@ -257,7 +257,7 @@
         android:hint="Enter Here"/>
 
     <CheckBox
-        android:id="@+id/EndgameCooperatitionBounusBox"
+        android:id="@+id/EndgameCoopertitionBonusBox"
         android:layout_width="139dp"
         android:layout_height="44dp"
         android:text="Cooperatition Bonus"

@@ -23,10 +23,27 @@ public class EndGame extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+            // Inflate the layout for this fragment
+            View view = inflater.inflate(R.layout.endgamepage, container, false);
 
-        return inflater.inflate(R.layout.endgamepage, container, false);
+            // Get a reference to the button in the layout
+            Button submitButton = view.findViewById(R.id.EndgameSubmitButton);
+
+            // Set an OnClickListener for the button
+            submitButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Call the function in MainActivity.java
+                    ((MainActivity)getActivity()).endgameSubmit(v);
+                }
+            });
+
+            return view;
+        }
+
+       // return inflater.inflate(R.layout.endgamepage, container, false);
 
     }
- }
+
 
 

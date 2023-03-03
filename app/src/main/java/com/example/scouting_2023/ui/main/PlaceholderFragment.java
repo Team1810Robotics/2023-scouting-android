@@ -13,7 +13,7 @@ import android.arch.lifecycle.ViewModelProvider;
 
 import com.example.scouting_2023.R;
 import com.example.scouting_2023.databinding.FragmentMainBinding;
-
+//TODO - DELETE THIS
 /**
  * A placeholder fragment containing a simple view.
  */
