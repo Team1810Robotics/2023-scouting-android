@@ -1,22 +1,17 @@
 package com.example.scouting_2023;
 
-import android.arch.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-
-import android.view.View.OnFocusChangeListener;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
-
 import android.widget.TextView;
 
 import com.example.scouting_2023.databinding.ActivityMainBinding;
@@ -39,9 +34,11 @@ public class MainActivity extends AppCompatActivity {
     //String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + fileName); // change
     String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + fileName);
 //Testing a SharedViewModel
-    private DataModel mViewModel;
+    private DataModel data;
     //Global access tp UI Elements
-
+    public void setMyDataObject(DataModel myDataObject) {
+        this.data = myDataObject;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,12 +48,17 @@ public class MainActivity extends AppCompatActivity {
        // setContentView(R.layout.activity_main);
         setContentView(binding.getRoot());
 
+        // Check if the myDataObject instance exists in the savedInstanceState bundle
+        if (savedInstanceState != null) {
+            data = (DataModel) savedInstanceState.getSerializable("data");
+        }
+
 
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-        final MyAdapter adapter = new MyAdapter(this, getSupportFragmentManager(), tabLayout.getTabCount());
+        final MyAdapter adapter = new MyAdapter(this, getSupportFragmentManager(), tabLayout.getTabCount(), data);
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
+
             }
 
             @Override
@@ -75,19 +78,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        mViewModel = new ViewModelProvider(this,this);
+       // mViewModel = new ViewModelProvider(this,this);
 
     }
 
-    public DataModel  getViewModel() {
-        return mViewModel;
-    }
 
         //mathmatics
-
-        int cube;
-        int links;
-        int ticker;
         int conesUpperLimit = 9;
         int conesLowerLimit = 0;
 
@@ -295,7 +291,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void endgameSubmit(View view) {
-      View intro = view.findViewById(R.id.Intro);
 
         //TODO: Add onChange/equivalent listeners to update these on update to set the bundle - access on submit
      //   txtTeamNum = (EditText) findViewById(R.id.IntroTeam);
@@ -330,8 +325,9 @@ public class MainActivity extends AppCompatActivity {
         data.setwin(chkWin.isChecked());
         data.setendgamePoints(Integer.parseInt(txtScore.getText().toString()));
         data.setcoopertition(chkCoopertition.isChecked());
+
         try {
-            data.setRoundNumber(bundle.getInt(String.valueOf(bundleValues.IntroRoundNumber)));
+           // data.setRoundNumber(bundle.getInt(String.valueOf(bundleValues.IntroRoundNumber)));
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -385,30 +381,12 @@ public class MainActivity extends AppCompatActivity {
         String tmpEndgameLowLink = bundle.getString(bundleValues.EndgameLowLinkTicker.toString());
 
         String tmpEndgameTotalScoreBox = bundle.getString(bundleValues.EndgameTotalScoreBox.toString());
-        String tmpEndgameCooperatitionBounusBox = bundle.getString(bundleValues.EndgameCooperatitionBounusBox.toString());
+        String tmpEndgameCoopertitionBonusBox = bundle.getString(bundleValues.EndgameCoopertitionBonusBox.toString());
         String tmpEndgameDidTheyWinBox = bundle.getString(bundleValues.EndgameDidTheyWinBox.toString());
         String tmpEndgameDockedBox = bundle.getString(bundleValues.EndgameDockedBox.toString());
         String tmpEndgameEngagedBox= bundle.getString(bundleValues.EndgameEngagedBox.toString());
 
 
-        String[] submitVariable = new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone,
-                tmpAutoMidCube, tmpAutoHighCone, tmpAutoHighCube};
-        String[] headers = new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube",
-                "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm",
-                "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone",
-                "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked",
-                "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "Won"};
-
-        int listLength = submitVariable.length;
-
-        for (int i = 0; i < listLength; i++) {
-            try {
-                Log.d("didItWork", "yea :D");
-                Log.d("" + headers[i+3], "" + submitVariable[i]);
-            } catch (Exception e) {
-                Log.d("didItWork", headers[i+3] + " can't be printed :/");
-            }
-        }
 
 
        
@@ -416,23 +394,9 @@ public class MainActivity extends AppCompatActivity {
         CSVWriter writer = null;
         //Populating the bundles
 
-        // String tmpTeamIDX = findViewById(R.id.IntroTeam).toString();
-        //IntroPage Bundle =String tmpMatchID = bundle.getString(bundleValues.IntroRoundNumber.toString(), 0);
-        //   String tmpTeamID = bundle.getString(bundleValues.IntroTeamNumber.toString());
-        //  String tmpAllianceColor = bundle.getString(bundleValues.IntroAllianceColor.toString());
-        //   String tmpTeamID = txtTeamNum.toString();txtMatchNum
-        //  String tmpMatchID = txtMatchNum.toString();
-        //String tmpAllianceColor = spnAlliance.toString();
-        //AutoPage Bundle
-        String tmpAutoHighCone = bundle.getString(bundleValues.AutoHighConesTicker.toString(), String.valueOf(0));
-        String tmpAutoHighCube = bundle.getString(bundleValues.AutoHighCubeTicker.toString(), String.valueOf(0));
-        String tmpAutoMidCone = bundle.getString(bundleValues.AutoMidConesTicker.toString(), String.valueOf(0));
-        String tmpAutoMidCube = bundle.getString(bundleValues.AutoMidCubeTicker.toString(), String.valueOf(0));
-        String tmpAutoLowCone = bundle.getString(bundleValues.AutoLowConesTicker.toString(), String.valueOf(0));
-        String tmpAutoLowCube = bundle.getString(bundleValues.AutoLowCubeTicker.toString(), String.valueOf(0));
-        String tmpAutoDocked = bundle.getString(bundleValues.AutoDocked.toString(), String.valueOf(0));
-        String tmpAutoEngaged = bundle.getString(bundleValues.AutoEngaged.toString(), String.valueOf(0));
-        String tmpAutoLeft = bundle.getString(bundleValues.AutoLeftCommunity.toString(), String.valueOf(0));
+
+
+
 
         Log.d("variable", "hi");
         Log.d("Low Cone", tmpAutoLowCone);
@@ -457,23 +421,9 @@ public class MainActivity extends AppCompatActivity {
             alertDialogBuilder.setMessage("Press Okay to Return to Start, Thank a Programmer");
             alertDialogBuilder.setTitle("Submitted");
 
-            writer.writeAll(data); // data is adding to csv
+            writer.writeAll(outputdata); // data is adding to csv
             writer.close();
-//Noah's updateds 3/1/23
-//        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(currentFileName))) {
-//            for (var row : data) {
-//                writer.write(String.join(",", row) + "\n");
-//            }
-//            writer = new CSVWriter(new FileWriter(currentFileName));
-////change capitilazation
-//            List<String[]> data = new ArrayList<String[]>();
-//            List().add(new Number[]{1,2,2,3});
-//            //confirmation message
-//
-//            writer.writeAll(data); // data is adding to csv
-//
-//            writer.close();
-//          callRead();
+
 
             alertDialogBuilder.setNegativeButton("Okay", (dialog, which) -> {
                 final Intent i = new Intent(getApplicationContext(), MainActivity.class);
@@ -502,6 +452,26 @@ public class MainActivity extends AppCompatActivity {
         }
         BundleUtils.resetBundleValues(bundle);
     }
+
+
+}
+
+//Noah's updateds 3/1/23
+//        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(currentFileName))) {
+//            for (var row : data) {
+//                writer.write(String.join(",", row) + "\n");
+//            }
+//            writer = new CSVWriter(new FileWriter(currentFileName));
+////change capitilazation
+//            List<String[]> data = new ArrayList<String[]>();
+//            List().add(new Number[]{1,2,2,3});
+//            //confirmation message
+//
+//            writer.writeAll(data); // data is adding to csv
+//
+//            writer.close();
+//          callRead();
+
 
 
         /*    data.setTeamID(TeamNumbers.fromValue(bundle.getString(bundleValues.IntroTeamNumber.toString(), TeamNumbers.TEAM_245.toString())));
@@ -536,12 +506,47 @@ public class MainActivity extends AppCompatActivity {
             data.setEndgameCoopertition(bundle.getBoolean(bundleValues.EndgameCooperatitionBounusBox.toString(), false));
 */
 
-}
+
+    /*String[] submitVariable = new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor,
+                tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube, tmpAutoHighCone,
+                tmpAutoHighCube};
+
+        String[] headers = new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube",
+                "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm",
+                "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone",
+                "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleLeftComm", "TeleDocked",
+                "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndgameLowLink", "EndGameMidLink",
+                "EndGameHighLink", "EndGameScore", "EndgameCoopertition","EndgameDocked",
+                "EndgameEngaged","EndGameNotes", "Won"};
+
+        int listLength = submitVariable.length;
+
+        for (int i = 0; i < listLength; i++) {
+            try {
+                Log.d("didItWork", "yea :D");
+                Log.d("" + headers[i+3], "" + submitVariable[i]);
+            } catch (Exception e) {
+                Log.d("didItWork", headers[i+3] + " can't be printed :/");
+            }
+        }
+*/
+
+// String tmpTeamIDX = findViewById(R.id.IntroTeam).toString();
+//IntroPage Bundle =String tmpMatchID = bundle.getString(bundleValues.IntroRoundNumber.toString(), 0);
+//   String tmpTeamID = bundle.getString(bundleValues.IntroTeamNumber.toString());
+//  String tmpAllianceColor = bundle.getString(bundleValues.IntroAllianceColor.toString());
+//   String tmpTeamID = txtTeamNum.toString();txtMatchNum
+//  String tmpMatchID = txtMatchNum.toString();
 
 
-
-
-
-
-
-
+    //AutoPage Bundle
+    /*String tmpAutoHighCone = bundle.getString(bundleValues.AutoHighConesTicker.toString(), String.valueOf(0));
+    String tmpAutoHighCube = bundle.getString(bundleValues.AutoHighCubeTicker.toString(), String.valueOf(0));
+    String tmpAutoMidCone = bundle.getString(bundleValues.AutoMidConesTicker.toString(), String.valueOf(0));
+    String tmpAutoMidCube = bundle.getString(bundleValues.AutoMidCubeTicker.toString(), String.valueOf(0));
+    String tmpAutoLowCone = bundle.getString(bundleValues.AutoLowConesTicker.toString(), String.valueOf(0));
+    String tmpAutoLowCube = bundle.getString(bundleValues.AutoLowCubeTicker.toString(), String.valueOf(0));
+    String tmpAutoDocked = bundle.getString(bundleValues.AutoDocked.toString(), String.valueOf(0));
+    String tmpAutoEngaged = bundle.getString(bundleValues.AutoEngaged.toString(), String.valueOf(0));
+    String tmpAutoLeft = bundle.getString(bundleValues.AutoLeftCommunity.toString(), String.valueOf(0));
+    */

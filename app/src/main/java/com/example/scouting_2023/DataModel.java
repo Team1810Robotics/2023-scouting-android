@@ -4,54 +4,52 @@ import android.arch.lifecycle.ViewModel;
 
 public class DataModel extends ViewModel {
 //  Declare variables
-
-
-//  Intro
-    private int teamID;
-    private String allianceColor;
-    private int roundNumber;
-//  Auto
-    private int autoLowCones;
-    private int autoLowCubes;
-    private int autoMidCones;
-    private int autoMidCubes;
-    private int autoHighCones;
-    private int autoHighCubes;
-    private boolean autoLeftComm;
-    private boolean autoDocked;
-    private boolean autoEngaged;
-//  TeleOp
-    private int teleLowCones;
-    private int teleLowCubes;
-    private int teleMidCones;
-    private int teleMidCubes;
-    private int teleHighCones;
-    private int teleHighCubes;
-    private boolean teleInComm;
-    private boolean teleDocked;
-    private boolean teleEngaged;
-    private String Role;
-    private boolean dirty;
-//  EndGame
-    private String notes;
-    private boolean win;
-    private int endgameHigh;
-    private int endgameMid;
-    private int endgameLow;
-    private int endgamePoints;
-    private boolean coopertition;
+    //  Intro
+        private String teamID;
+        private String allianceColor;
+        private String roundNumber;
+    //  Auto
+        private int autoLowCones;
+        private int autoLowCubes;
+        private int autoMidCones;
+        private int autoMidCubes;
+        private int autoHighCones;
+        private int autoHighCubes;
+        private boolean autoLeftComm;
+        private boolean autoDocked;
+        private boolean autoEngaged;
+    //  TeleOp
+        private int teleLowCones;
+        private int teleLowCubes;
+        private int teleMidCones;
+        private int teleMidCubes;
+        private int teleHighCones;
+        private int teleHighCubes;
+        private boolean teleInComm;
+        private boolean teleDocked;
+        private boolean teleEngaged;
+        private String Role;
+        private boolean dirty;
+    //  EndGame
+        private String notes;
+        private boolean win;
+        private int endgameHigh;
+        private int endgameMid;
+        private int endgameLow;
+        private int endgamePoints;
+        private boolean coopertition;
 
 
 
     //Get functions
 
         //Intro
-        public int getRoundNumber() {
-            return roundNumber;
+        public String getRoundNumber() {
+            return this.roundNumber;
         }
-        public String getAllianceColor() {return allianceColor;}
-        public int getTeamID() {
-        return teamID;
+        public String getAllianceColor() {return this.allianceColor;}
+        public String getTeamID() {
+        return this.teamID;
     }
         //Auto
         public int getAutoLowCones() {return autoLowCones;}
@@ -90,11 +88,11 @@ public class DataModel extends ViewModel {
         //TeleOp
         //Final
         //Intro
-        public void setRoundNumber(final int roundNumber) {
+        public void setRoundNumber(final String roundNumber) {
             this.roundNumber = roundNumber;
         }
-        public void setAllianceColor(final int AllianceColor) {this.allianceColor = allianceColor;}
-        public void setTeamID(final int TeamID) {this.teamID = TeamID;}
+        public void setAllianceColor(final String AllianceColor) {this.allianceColor = allianceColor;}
+        public void setTeamID(final String TeamID) {this.teamID = TeamID;}
         public void setautoLowCones(final int autoLowCones) {this.autoLowCones = autoLowCones;}
         public void setautoLowCubes(final int autoLowCubes) {this.autoLowCubes = autoLowCubes;}
         public void setautoMidCones(final int autoMidCones) {this.autoMidCones = autoMidCones;}
