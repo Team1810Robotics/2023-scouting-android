@@ -357,6 +357,7 @@ public class MainActivity extends AppCompatActivity {
         String tmpEndgameLowLink = bundle.getString(bundleValues.EndgameLowLinkTicker.toString());
 
         String tmpEndgameTotalScoreBox = String.valueOf(data.getendgamePoints());
+        String tmpEndgameNotes = String.valueOf(data.getnotes());
         String tmpEndgameCoopertitionBonusBox = String.valueOf(data.getcoopertition());
         String tmpEndgameDidTheyWinBox = String.valueOf(data.getwin());
         String tmpEndgameDockedBox = String.valueOf(data.getendgameDocked());
@@ -390,7 +391,7 @@ public class MainActivity extends AppCompatActivity {
 
             List<String[]> outputdata = new ArrayList<String[]>();
             outputdata.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleInComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "EndGamePoints", "EndGameCoopertition", "EndGameLinkLow", "EndGameLinkMid", "EndGameLinkHigh", "Won"});
-            outputdata.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube, tmpAutoHighCone, tmpAutoHighCube, tmpAutoLeft, tmpAutoDocked, tmpAutoEngaged, tmpTeleOpLowCone, tmpTeleOpLowCube, tmpTeleOpMidCone, tmpTeleOpMidCube, tmpTeleOpHighCone, tmpTeleOpHighCube, tmpTeleOpRoleDrop, tmpTeleOpNaughtyCheck, tmpEndgameLowLink, tmpEndgameMidLink, tmpEndgameHighLink, tmpEndgameDidTheyWinBox, tmpEndgameCoopertitionBonusBox, tmpEndgameDockedBox, tmpEndgameEngagedBox});
+            outputdata.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube, tmpAutoHighCone, tmpAutoHighCube, tmpAutoLeft, tmpAutoDocked, tmpAutoEngaged, tmpTeleOpLowCone, tmpTeleOpLowCube, tmpTeleOpMidCone, tmpTeleOpMidCube, tmpTeleOpHighCone, tmpTeleOpHighCube, tmpTeleOpRoleDrop, tmpTeleOpNaughtyCheck, tmpEndgameLowLink, tmpEndgameMidLink, tmpEndgameHighLink, tmpEndgameDidTheyWinBox, tmpEndgameTotalScoreBox, tmpEndgameTotalScoreBox, tmpEndgameDockedBox, tmpEndgameEngagedBox});
             //confirmation message
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
