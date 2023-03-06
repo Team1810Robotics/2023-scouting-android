@@ -9,9 +9,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.scouting_2023.databinding.ActivityMainBinding;
@@ -35,22 +32,40 @@ public class MainActivity extends AppCompatActivity {
     String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + fileName);
 //Testing a SharedViewModel
     private DataModel data;
-    //Global access tp UI Elements
-    public void setMyDataObject(DataModel myDataObject) {
-        this.data = myDataObject;
-    }
+    //Global access to UI Elements
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
        // setContentView(R.layout.activity_main);
         setContentView(binding.getRoot());
+        try {
+            // Get a reference to the singleton instance of DataSingleton
+            DataModelDAO dataSingleton = DataModelDAO.getInstance();
 
-        // Check if the myDataObject instance exists in the savedInstanceState bundle
-        if (savedInstanceState != null) {
-            data = (DataModel) savedInstanceState.getSerializable("data");
+            // Set any initial data for your data object
+            DataModel data = dataSingleton.getMyDataObject();
+
+
+            // Save the initial data back to the singleton instance
+            DataModelDAO.setMyDataObject(data);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setMessage(e.getMessage());
+            alertDialogBuilder.setTitle("File Save Error, Blame Anyone and everyone");
+
+            alertDialogBuilder.setNegativeButton("Okay", (dialog, which) -> {
+                finish();
+            });
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
         }
 
 
@@ -291,64 +306,25 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void endgameSubmit(View view) {
+        DataModelDAO dataModelDAO = DataModelDAO.getInstance();
+        // Get a reference to the data object
+        DataModel data = dataModelDAO.getMyDataObject();
 
-        //TODO: Add onChange/equivalent listeners to update these on update to set the bundle - access on submit
-     //   txtTeamNum = (EditText) findViewById(R.id.IntroTeam);
-        EditText txtMatchNum = (EditText) findViewById(R.id.IntroRound);
-        Spinner spnAlliance = (Spinner) findViewById(R.id.IntroAlliance);
-        //public Spinner spnRole = (Spinner)findViewById(R.id.TeleopRoleDrop);
-         EditText txtNotes = (EditText)findViewById(R.id.EndgameNoteButton);
-        EditText txtScore = (EditText)findViewById(R.id.EndgameTotalScoreBox);
-        // public CheckBox chkLeftComm = (CheckBox)findViewById(R.id.AutoLeftCommunity);
-        // public CheckBox chkAutoDocked = (CheckBox)findViewById(R.id.AutoDocked);
-        // public CheckBox chkAutoEngaged = (CheckBox)findViewById(R.id.AutoEngaged);
-        CheckBox chkWin = (CheckBox)findViewById(R.id.EndgameDidTheyWinBox);
-        CheckBox chkDirty = (CheckBox)findViewById(R.id.TeleOpNaughtyCheck);
-        CheckBox chkEndgameDocked = (CheckBox)findViewById(R.id.EndgameDockedBox);
-        CheckBox chkEndgameEngaged = (CheckBox)findViewById(R.id.EndgameEngagedBox);
-        CheckBox chkCoopertition = (CheckBox)findViewById(R.id.EndgameCoopertitionBonusBox);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) {
             bundle = new Bundle();
         }
 
-        final DataModel data = new DataModel();
-//Set Values
 
-        //EndGame Page Bundle
-        data.setendgameHigh(bundle.getInt(bundleValues.EndgameHighLinkTicker.toString(), 0));
-        data.setendgameMid(bundle.getInt(bundleValues.EndgameMidLinkTicker.toString(), 0));
-        data.setendgameLow(bundle.getInt(bundleValues.EndgameLowLinkTicker.toString(), 0));
-        data.setteleDocked(chkEndgameDocked.isChecked());
-        data.setteleEngaged(chkEndgameEngaged.isChecked());
-        data.setwin(chkWin.isChecked());
-        data.setendgamePoints(Integer.parseInt(txtScore.getText().toString()));
-        data.setcoopertition(chkCoopertition.isChecked());
-
-        try {
-           // data.setRoundNumber(bundle.getInt(String.valueOf(bundleValues.IntroRoundNumber)));
-        } catch (Exception e) {
-            e.printStackTrace();
-
-
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setMessage(e.getMessage());
-            alertDialogBuilder.setTitle("File Save Error, Blame Reid");
-            alertDialogBuilder.setNegativeButton("Okay", (dialog, which) -> {
-                finish();
-            });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
-         }
 
         //TODO: Finish all of the variables
 
         //IntroPage Bundle
-        String tmpMatchID = bundle.getString(bundleValues.IntroRoundNumber.toString(), "");
-        String tmpTeamID = bundle.getString(bundleValues.IntroTeamNumber.toString(), "");
-        String tmpAllianceColor = bundle.getString(bundleValues.IntroAllianceColor.toString());
-        String tmpAutoLeft = bundle.getString(bundleValues.AutoLeftCommunity.toString());
+        String tmpMatchID = data.getRoundNumber();
+        String tmpTeamID = data.getTeamID();
+        String tmpAllianceColor = data.getAllianceColor();
+        String tmpAutoLeft = (String.valueOf(data.getAutoLeftComm()));
 
         //AutoPage Bundle
         String tmpAutoHighCone = bundle.getString(bundleValues.AutoHighConesTicker.toString(), "");
@@ -357,8 +333,8 @@ public class MainActivity extends AppCompatActivity {
         String tmpAutoMidCube = bundle.getString(bundleValues.AutoMidCubeTicker.toString(), "");
         String tmpAutoLowCone = bundle.getString(bundleValues.AutoLowConesTicker.toString(), "");
         String tmpAutoLowCube = bundle.getString(bundleValues.AutoLowCubeTicker.toString(), "");
-        String tmpAutoDocked = bundle.getString(bundleValues.AutoDocked.toString(), "");
-        String tmpAutoEngaged = bundle.getString(bundleValues.AutoEngaged.toString(), "");
+        String tmpAutoDocked = String.valueOf(data.getAutoDocked());
+        String tmpAutoEngaged = String.valueOf(data.getAutoEngaged());
 
 
 
@@ -371,8 +347,8 @@ public class MainActivity extends AppCompatActivity {
         String tmpTeleOpLowCone = bundle.getString(bundleValues.TeleOpLowConeTicker.toString());
         String tmpTeleOpLowCube = bundle.getString(bundleValues.TeleOpLowCubeTicker.toString());
 
-        String tmpTeleOpRoleDrop = bundle.getString(bundleValues. TeleOpRoleDrop.toString());
-        String tmpTeleOpNaughtyCheck= bundle.getString(bundleValues.TeleOpNaughtyCheck.toString());
+        String tmpTeleOpRoleDrop = data.getRole();
+        String tmpTeleOpNaughtyCheck= String.valueOf(data.getDirty());
 
 
         //Endgame
@@ -380,11 +356,11 @@ public class MainActivity extends AppCompatActivity {
         String tmpEndgameMidLink = bundle.getString(bundleValues.EndgameMidLinkTicker.toString());
         String tmpEndgameLowLink = bundle.getString(bundleValues.EndgameLowLinkTicker.toString());
 
-        String tmpEndgameTotalScoreBox = bundle.getString(bundleValues.EndgameTotalScoreBox.toString());
-        String tmpEndgameCoopertitionBonusBox = bundle.getString(bundleValues.EndgameCoopertitionBonusBox.toString());
-        String tmpEndgameDidTheyWinBox = bundle.getString(bundleValues.EndgameDidTheyWinBox.toString());
-        String tmpEndgameDockedBox = bundle.getString(bundleValues.EndgameDockedBox.toString());
-        String tmpEndgameEngagedBox= bundle.getString(bundleValues.EndgameEngagedBox.toString());
+        String tmpEndgameTotalScoreBox = String.valueOf(data.getendgamePoints());
+        String tmpEndgameCoopertitionBonusBox = String.valueOf(data.getcoopertition());
+        String tmpEndgameDidTheyWinBox = String.valueOf(data.getwin());
+        String tmpEndgameDockedBox = String.valueOf(data.getendgameDocked());
+        String tmpEndgameEngagedBox= String.valueOf(data.getendgameEngaged());
 
 
 
@@ -414,7 +390,7 @@ public class MainActivity extends AppCompatActivity {
 
             List<String[]> outputdata = new ArrayList<String[]>();
             outputdata.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleInComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "EndGamePoints", "EndGameCoopertition", "EndGameLinkLow", "EndGameLinkMid", "EndGameLinkHigh", "Won"});
-            outputdata.add(new String[]{/*tmpMatchID, tmpTeamID, tmpAllianceColor,*/ tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube});
+            outputdata.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube, tmpAutoHighCone, tmpAutoHighCube, tmpAutoLeft, tmpAutoDocked, tmpAutoEngaged, tmpTeleOpLowCone, tmpTeleOpLowCube, tmpTeleOpMidCone, tmpTeleOpMidCube, tmpTeleOpHighCone, tmpTeleOpHighCube, tmpTeleOpRoleDrop, tmpTeleOpNaughtyCheck, tmpEndgameLowLink, tmpEndgameMidLink, tmpEndgameHighLink, tmpEndgameDidTheyWinBox, tmpEndgameCoopertitionBonusBox, tmpEndgameDockedBox, tmpEndgameEngagedBox});
             //confirmation message
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);

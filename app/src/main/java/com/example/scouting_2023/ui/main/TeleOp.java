@@ -9,7 +9,7 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 
 import com.example.scouting_2023.DataModel;
-import com.example.scouting_2023.MainActivity;
+import com.example.scouting_2023.DataModelDAO;
 import com.example.scouting_2023.R;
 
 
@@ -25,28 +25,36 @@ public class TeleOp extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.teleoppage, container, false);
-
+        // Get a reference to the singleton instance of DataSingleton
+        DataModelDAO dataModelDAO = DataModelDAO.getInstance();
+        // Get a reference to your data object
+        DataModel data = dataModelDAO.getMyDataObject();
         chkDirty= (CheckBox) view.findViewById(R.id.TeleOpNaughtyCheck);
         spnRole= (Spinner) view.findViewById(R.id.TeleopRoleDrop);
         return view;
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        // Get the text entered by the user
+    public void saveData(){
         String retChkDirty = chkDirty.getText().toString();
         String retRole = spnRole.getSelectedItem().toString();
 
 
         // Create an instance of MyDataObject and save the text to it
-        DataModel data = new DataModel();
+        // Get a reference to the singleton instance of DataSingleton
+        DataModelDAO dataModelDAO = DataModelDAO.getInstance();
+        // Get a reference to your data object
+        DataModel data = dataModelDAO.getMyDataObject();
         data.setdirty(Boolean.parseBoolean(retChkDirty));
         data.setRole(retRole);
 
+// Get a reference to the activity and set the myDataObject instance as an argument for the next fragment
+        dataModelDAO.setMyDataObject(data);
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+       saveData();
+        // Get the text entered by the user
 
-        // Get a reference to the activity and set the myDataObject instance as an argument for the next fragment
-        MainActivity activity = (MainActivity) getActivity();
-        activity.setMyDataObject(data);
     }
 }

@@ -39,6 +39,10 @@ public class DataModel extends ViewModel {
         private int endgamePoints;
         private boolean coopertition;
 
+        private boolean endgameDocked;
+
+        private boolean endgameEngaged;
+
 
 
     //Get functions
@@ -58,9 +62,9 @@ public class DataModel extends ViewModel {
         public int getAutoMidCubes() {return autoMidCubes;}
         public int getAutoHighCones(){return autoHighCones;}
         public int getAutoHighCubes(){return autoHighCubes;}
-        public boolean autoLeftComm(){return autoLeftComm;}
-        public boolean autoDocked()  {return autoDocked;}
-        public boolean autoEngaged() {return autoEngaged;}
+        public boolean getAutoLeftComm(){return autoLeftComm;}
+        public boolean getAutoDocked()  {return autoDocked;}
+        public boolean getAutoEngaged() {return autoEngaged;}
         //TeleOp
         public int getteleLowCones() {return teleLowCones;}
         public int getteleLowCubes() {return teleLowCubes;}
@@ -69,6 +73,8 @@ public class DataModel extends ViewModel {
         public int getteleHighCones(){return teleHighCones;}
         public int getteleHighCubes(){return teleHighCubes;}
         public String getRole() {return Role;}
+
+        public boolean getDirty() {return dirty;}
         public boolean getteleInComm() {return teleInComm;}
         public boolean getteleDocked() {return teleDocked;}
         public boolean getteleEndgaged() {return teleEngaged;}
@@ -81,6 +87,8 @@ public class DataModel extends ViewModel {
         public int getendgameLow()  {return endgameLow;}
         public int getendgamePoints() {return endgamePoints;}
         public boolean getcoopertition(){return coopertition;}
+        public boolean getendgameDocked(){return endgameDocked;}
+        public boolean getendgameEngaged(){return endgameEngaged;}
     //Set Functions
         //Intro
 
@@ -88,10 +96,8 @@ public class DataModel extends ViewModel {
         //TeleOp
         //Final
         //Intro
-        public void setRoundNumber(final String roundNumber) {
-            this.roundNumber = roundNumber;
-        }
-        public void setAllianceColor(final String AllianceColor) {this.allianceColor = allianceColor;}
+        public void setRoundNumber(final String roundNumber) {this.roundNumber = roundNumber;}
+        public void setAllianceColor(final String allianceColor) {this.allianceColor = allianceColor;}
         public void setTeamID(final String TeamID) {this.teamID = TeamID;}
         public void setautoLowCones(final int autoLowCones) {this.autoLowCones = autoLowCones;}
         public void setautoLowCubes(final int autoLowCubes) {this.autoLowCubes = autoLowCubes;}
@@ -127,6 +133,10 @@ public class DataModel extends ViewModel {
         public void setnotes(final String notes) {this.notes = notes;}
         public void setwin(final boolean win){this.win = win;}
         public void setcoopertition(final boolean coopertition){this.coopertition = coopertition;}
+        public void setEndgameDocked(final boolean endgameDocked){this.endgameEngaged = endgameDocked;}
+        public void setEndgameEngaged(final boolean endgameEngaged){this.endgameEngaged = endgameEngaged;}
+
+
 
 
 }
