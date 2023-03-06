@@ -41,7 +41,7 @@ public class TeleOp extends Fragment {
 
         // Create an instance of MyDataObject and save the text to it
         DataModel data = new DataModel();
-        data.setdirty(Boolean.parseBoolean(retRole));
+        data.setdirty(Boolean.parseBoolean(retChkDirty));
         data.setRole(retRole);
 
 
