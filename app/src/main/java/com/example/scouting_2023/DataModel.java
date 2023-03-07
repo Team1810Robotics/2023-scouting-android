@@ -5,43 +5,43 @@ import android.arch.lifecycle.ViewModel;
 public class DataModel extends ViewModel {
 //  Declare variables
     //  Intro
-        private String teamID;
-        private String allianceColor;
-        private String roundNumber;
+        private String teamID = "";
+        private String allianceColor ="";
+        private String roundNumber = "";
     //  Auto
-        private int autoLowCones;
-        private int autoLowCubes;
-        private int autoMidCones;
-        private int autoMidCubes;
-        private int autoHighCones;
-        private int autoHighCubes;
-        private boolean autoLeftComm;
-        private boolean autoDocked;
-        private boolean autoEngaged;
+        private int autoLowCones = 0;
+        private int autoLowCubes = 0;
+        private int autoMidCones = 0;
+        private int autoMidCubes = 0;
+        private int autoHighCones = 0;
+        private int autoHighCubes = 0;
+        private boolean autoLeftComm = false;
+        private boolean autoDocked= false;
+        private boolean autoEngaged = false;
     //  TeleOp
-        private int teleLowCones;
-        private int teleLowCubes;
-        private int teleMidCones;
-        private int teleMidCubes;
-        private int teleHighCones;
-        private int teleHighCubes;
-        private boolean teleInComm;
-        private boolean teleDocked;
-        private boolean teleEngaged;
-        private String Role;
-        private boolean dirty;
+        private int teleLowCones = 0;
+        private int teleLowCubes=0;
+        private int teleMidCones=0;
+        private int teleMidCubes=0;
+        private int teleHighCones=0;
+        private int teleHighCubes=0;
+        private boolean teleInComm=false;
+        private boolean teleDocked=false;
+        private boolean teleEngaged=false;
+        private String Role="";
+        private boolean dirty = false;
     //  EndGame
-        private String notes;
-        private boolean win;
-        private int endgameHigh;
-        private int endgameMid;
-        private int endgameLow;
-        private int endgamePoints;
-        private boolean coopertition;
+        private String notes ="";
+        private boolean win = false;
+        private int endgameHigh = 0;
+        private int endgameMid =0;
+        private int endgameLow=0;
+        private int endgamePoints=0;
+        private boolean coopertition =false;
 
-        private boolean endgameDocked;
+        private boolean endgameDocked= false;
 
-        private boolean endgameEngaged;
+        private boolean endgameEngaged = false;
 
 
 
@@ -133,7 +133,7 @@ public class DataModel extends ViewModel {
         public void setnotes(final String notes) {this.notes = notes;}
         public void setwin(final boolean win){this.win = win;}
         public void setcoopertition(final boolean coopertition){this.coopertition = coopertition;}
-        public void setEndgameDocked(final boolean endgameDocked){this.endgameEngaged = endgameDocked;}
+        public void setEndgameDocked(final boolean endgameDocked){this.endgameDocked = endgameDocked;}
         public void setEndgameEngaged(final boolean endgameEngaged){this.endgameEngaged = endgameEngaged;}
 
 

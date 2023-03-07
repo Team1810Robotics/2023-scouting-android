@@ -5,13 +5,6 @@
         <item>Red</item>
         <item>Blue</item>
     </string-array>
-    <string-array name="TeleopRoleDrop">
-        <item>Role</item>
-        <item>Taxi</item>
-        <item>Scorer</item>
-        <item>Blocker</item>
-        <item>Mixed</item>
-    </string-array>
 </resources>
 
 

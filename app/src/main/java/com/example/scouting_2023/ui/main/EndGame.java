@@ -86,10 +86,10 @@ public void saveData(){
     // Get the text entered by the user
     String retTxtScore = txtScore.getText().toString();
     String retTxtNotes = txtNotes.getText().toString();
-    String retChkCoopertition = String.valueOf(chkCoopertition.isChecked());
-    String retChkWin = String.valueOf(chkWin.isChecked());
-    String retChkEndGameDocked = String.valueOf(chkEndGameDocked.isChecked());
-    String retChkEndGameEngaged = String.valueOf(chkEndGameEngaged.isChecked());
+    boolean retChkCoopertition = chkCoopertition.isChecked();
+    boolean retChkWin = chkWin.isChecked();
+    boolean retChkEndGameDocked = chkEndGameDocked.isChecked();
+    boolean retChkEndGameEngaged = chkEndGameEngaged.isChecked();
 
     // Create an instance of MyDataObject and save the text to it
     // Get a reference to the singleton instance of DataSingleton
@@ -98,10 +98,10 @@ public void saveData(){
     DataModel data = dataModelDAO.getMyDataObject();
     data.setendgamePoints(Integer.parseInt(retTxtScore));
     data.setnotes(retTxtNotes);
-    data.setwin(Boolean.parseBoolean(retChkWin));
-    data.setcoopertition(Boolean.parseBoolean(retChkCoopertition));
-    data.setEndgameDocked(Boolean.parseBoolean(retChkEndGameDocked));
-    data.setEndgameEngaged(Boolean.parseBoolean(retChkEndGameEngaged));
+    data.setwin(retChkWin);
+    data.setcoopertition(retChkCoopertition);
+    data.setEndgameDocked(retChkEndGameDocked);
+    data.setEndgameEngaged(retChkEndGameEngaged);
 
 
     // Get a reference to the activity and set the myDataObject instance as an argument for the next fragment

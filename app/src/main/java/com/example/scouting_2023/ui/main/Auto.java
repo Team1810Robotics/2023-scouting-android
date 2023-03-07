@@ -42,18 +42,18 @@ public class Auto extends Fragment {
 
     public void saveData(){
         // Get the text entered by the user
-        String retChkLeftCommunity = chkLeftCommunity.getText().toString();
-        String retChkDocked = chkDocked.getText().toString();
-        String retChkEngaged = chkEngaged.getText().toString();
+        boolean retChkLeftCommunity = chkLeftCommunity.isChecked();
+        boolean retChkDocked = chkDocked.isChecked();
+        boolean retChkEngaged = chkEngaged.isChecked();
 
         // Create an instance of MyDataObject and save the text to it
         // Get a reference to the singleton instance of DataSingleton
         DataModelDAO dataModelDAO = DataModelDAO.getInstance();
         // Get a reference to your data object
         DataModel data = dataModelDAO.getMyDataObject();
-        data.setautoLeftComm(Boolean.parseBoolean(retChkLeftCommunity));
-        data.setautoDocked(Boolean.parseBoolean(retChkDocked));
-        data.setautoEngaged(Boolean.parseBoolean(retChkEngaged));
+        data.setautoLeftComm(retChkLeftCommunity);
+        data.setautoDocked(retChkDocked);
+        data.setautoEngaged(retChkEngaged);
 
         // Get a reference to the activity and set the myDataObject instance as an argument for the next fragment
         dataModelDAO.setMyDataObject(data);

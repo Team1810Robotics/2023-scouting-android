@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
     //String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + fileName); // change
     String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + fileName);
-//Testing a SharedViewModel
-    private DataModel data;
+
     //Global access to UI Elements
+    private DataModel data;
 
 
     @Override
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
             alertDialogBuilder.setMessage(e.getMessage());
-            alertDialogBuilder.setTitle("File Save Error, Blame Anyone and everyone");
+            alertDialogBuilder.setTitle("File Save Error, Blame Google");
 
             alertDialogBuilder.setNegativeButton("Okay", (dialog, which) -> {
                 finish();
@@ -324,22 +324,22 @@ public class MainActivity extends AppCompatActivity {
         String tmpMatchID = data.getRoundNumber();
         String tmpTeamID = data.getTeamID();
         String tmpAllianceColor = data.getAllianceColor();
-        String tmpAutoLeft = (String.valueOf(data.getAutoLeftComm()));
+
 
         //AutoPage Bundle
-        String tmpAutoHighCone = bundle.getString(bundleValues.AutoHighConesTicker.toString(), "");
-        String tmpAutoHighCube = bundle.getString(bundleValues.AutoHighCubeTicker.toString(), "");
+        String tmpAutoHighCone = bundle.getString(String.valueOf(bundleValues.AutoHighConesTicker), "");
+        String tmpAutoHighCube = bundle.getString(String.valueOf(bundleValues.AutoHighCubeTicker), "");
         String tmpAutoMidCone = bundle.getString(bundleValues.AutoMidConesTicker.toString(), "");
         String tmpAutoMidCube = bundle.getString(bundleValues.AutoMidCubeTicker.toString(), "");
         String tmpAutoLowCone = bundle.getString(bundleValues.AutoLowConesTicker.toString(), "");
         String tmpAutoLowCube = bundle.getString(bundleValues.AutoLowCubeTicker.toString(), "");
+        String tmpAutoLeft = String.valueOf(data.getAutoLeftComm());
         String tmpAutoDocked = String.valueOf(data.getAutoDocked());
         String tmpAutoEngaged = String.valueOf(data.getAutoEngaged());
 
 
 
         //TeleOp
-
         String tmpTeleOpHighCone = bundle.getString(bundleValues.TeleOpHighConeTicker.toString());
         String tmpTeleOpHighCube = bundle.getString(bundleValues.TeleOpHighCubeTicker.toString());
         String tmpTeleOpMidCone = bundle.getString(bundleValues.TeleOpMidConeTicker.toString());
@@ -390,8 +390,8 @@ public class MainActivity extends AppCompatActivity {
 //change capitilazation
 
             List<String[]> outputdata = new ArrayList<String[]>();
-            outputdata.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleInComm", "TeleDocked", "TeleEngaged", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "EndGamePoints", "EndGameCoopertition", "EndGameLinkLow", "EndGameLinkMid", "EndGameLinkHigh", "Won"});
-            outputdata.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube, tmpAutoHighCone, tmpAutoHighCube, tmpAutoLeft, tmpAutoDocked, tmpAutoEngaged, tmpTeleOpLowCone, tmpTeleOpLowCube, tmpTeleOpMidCone, tmpTeleOpMidCube, tmpTeleOpHighCone, tmpTeleOpHighCube, tmpTeleOpRoleDrop, tmpTeleOpNaughtyCheck, tmpEndgameLowLink, tmpEndgameMidLink, tmpEndgameHighLink, tmpEndgameDidTheyWinBox, tmpEndgameTotalScoreBox, tmpEndgameTotalScoreBox, tmpEndgameDockedBox, tmpEndgameEngagedBox});
+            outputdata.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "EndGamePoints", "EndGameCoopertition", "EndGameLinkLow", "EndGameLinkMid", "EndGameLinkHigh", "Won"});
+            outputdata.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube, tmpAutoHighCone, tmpAutoHighCube, tmpAutoLeft, tmpAutoDocked, tmpAutoEngaged, tmpTeleOpLowCone, tmpTeleOpLowCube, tmpTeleOpMidCone, tmpTeleOpMidCube, tmpTeleOpHighCone, tmpTeleOpHighCube, tmpTeleOpRoleDrop, tmpTeleOpNaughtyCheck, tmpEndgameNotes, tmpEndgameTotalScoreBox, tmpEndgameCoopertitionBonusBox, tmpEndgameLowLink, tmpEndgameMidLink, tmpEndgameHighLink, tmpEndgameDidTheyWinBox, tmpEndgameDockedBox, tmpEndgameEngagedBox});
             //confirmation message
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);

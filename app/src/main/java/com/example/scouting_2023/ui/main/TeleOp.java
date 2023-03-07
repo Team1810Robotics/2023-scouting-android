@@ -35,25 +35,31 @@ public class TeleOp extends Fragment {
     }
 
     public void saveData(){
-        String retChkDirty = chkDirty.getText().toString();
-        String retRole = spnRole.getSelectedItem().toString();
+        try {
+            boolean retChkDirty = chkDirty.isChecked();
+            String retRole = spnRole.getSelectedItem().toString();
 
-
-        // Create an instance of MyDataObject and save the text to it
-        // Get a reference to the singleton instance of DataSingleton
-        DataModelDAO dataModelDAO = DataModelDAO.getInstance();
-        // Get a reference to your data object
-        DataModel data = dataModelDAO.getMyDataObject();
-        data.setdirty(Boolean.parseBoolean(retChkDirty));
-        data.setRole(retRole);
+            // Create an instance of MyDataObject and save the text to it
+            // Get a reference to the singleton instance of DataSingleton
+            DataModelDAO dataModelDAO = DataModelDAO.getInstance();
+            // Get a reference to your data object
+            DataModel data = dataModelDAO.getMyDataObject();
+            data.setdirty(retChkDirty);
+            data.setRole(retRole);
 
 // Get a reference to the activity and set the myDataObject instance as an argument for the next fragment
-        dataModelDAO.setMyDataObject(data);
+            dataModelDAO.setMyDataObject(data);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+
+        }
     }
     @Override
     public void onPause() {
         super.onPause();
-       saveData();
+         saveData();
         // Get the text entered by the user
 
     }
