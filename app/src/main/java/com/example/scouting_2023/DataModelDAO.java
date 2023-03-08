@@ -23,5 +23,8 @@ public class DataModelDAO {
             return myDataObject;
         }
 
+    public static void destroyMyDataObject() {
+        instance = null;
 
+    }
 }

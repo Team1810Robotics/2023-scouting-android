@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 
@@ -17,6 +18,7 @@ public class TeleOp extends Fragment {
 
 
     private Spinner spnRole;
+    boolean spnRoleInitialized;
     private CheckBox chkDirty;
     public TeleOp() {
         // Required empty public constructor
@@ -31,6 +33,25 @@ public class TeleOp extends Fragment {
         DataModel data = dataModelDAO.getMyDataObject();
         chkDirty= (CheckBox) view.findViewById(R.id.TeleOpNaughtyCheck);
         spnRole= (Spinner) view.findViewById(R.id.TeleopRoleDrop);
+
+
+        spnRole.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+              if  (!spnRoleInitialized) {
+                    spnRoleInitialized = true;
+                    return;
+                }
+                saveData();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+
+        });
         return view;
     }
 
@@ -63,4 +84,6 @@ public class TeleOp extends Fragment {
         // Get the text entered by the user
 
     }
+
+
 }

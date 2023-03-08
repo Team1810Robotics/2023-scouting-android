@@ -103,8 +103,16 @@ public class MainActivity extends AppCompatActivity {
         int conesLowerLimit = 0;
 
 
+//Reinstatiate the data object
+public void createDAO(){
 
-
+    // Get a reference to the singleton instance of DataSingleton
+    DataModelDAO dataSingleton = DataModelDAO.getInstance();
+    // Set any initial data for your data object
+    DataModel data = dataSingleton.getMyDataObject();
+    // Save the initial data back to the singleton instance
+    DataModelDAO.setMyDataObject(data);
+}
 
         //TeleOp Page
     public void incrementTeleOpLowerCone(View view){
@@ -327,12 +335,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         //AutoPage Bundle
-        String tmpAutoHighCone = bundle.getString(String.valueOf(bundleValues.AutoHighConesTicker), "");
-        String tmpAutoHighCube = bundle.getString(String.valueOf(bundleValues.AutoHighCubeTicker), "");
-        String tmpAutoMidCone = bundle.getString(bundleValues.AutoMidConesTicker.toString(), "");
-        String tmpAutoMidCube = bundle.getString(bundleValues.AutoMidCubeTicker.toString(), "");
-        String tmpAutoLowCone = bundle.getString(bundleValues.AutoLowConesTicker.toString(), "");
-        String tmpAutoLowCube = bundle.getString(bundleValues.AutoLowCubeTicker.toString(), "");
+
+        int tempAutoHighCone = bundle.getInt(String.valueOf(bundleValues.AutoHighConesTicker),0);
+        int tempAutoHighCube = bundle.getInt(String.valueOf(bundleValues.AutoHighCubeTicker),0);
+        int tempAutoMidCone = bundle.getInt(bundleValues.AutoMidConesTicker.toString(),0);
+        int tempAutoMidCube = bundle.getInt(bundleValues.AutoMidCubeTicker.toString(),0);
+        int tempAutoLowCone = bundle.getInt(bundleValues.AutoLowConesTicker.toString(),0);
+        int tempAutoLowCube = bundle.getInt(bundleValues.AutoLowCubeTicker.toString(),0);
+        String tmpAutoHighCone = String.valueOf(tempAutoHighCone);
+        String tmpAutoHighCube = String.valueOf(tempAutoHighCube);
+        String tmpAutoMidCone = String.valueOf(tempAutoMidCone);
+        String tmpAutoMidCube = String.valueOf(tempAutoMidCube);
+        String tmpAutoLowCone = String.valueOf(tempAutoLowCone);
+        String tmpAutoLowCube = String.valueOf(tempAutoLowCube);
         String tmpAutoLeft = String.valueOf(data.getAutoLeftComm());
         String tmpAutoDocked = String.valueOf(data.getAutoDocked());
         String tmpAutoEngaged = String.valueOf(data.getAutoEngaged());
@@ -340,21 +355,31 @@ public class MainActivity extends AppCompatActivity {
 
 
         //TeleOp
-        String tmpTeleOpHighCone = bundle.getString(bundleValues.TeleOpHighConeTicker.toString());
-        String tmpTeleOpHighCube = bundle.getString(bundleValues.TeleOpHighCubeTicker.toString());
-        String tmpTeleOpMidCone = bundle.getString(bundleValues.TeleOpMidConeTicker.toString());
-        String tmpTeleOpMidCube = bundle.getString(bundleValues.TeleOpMidCubeTicker.toString());
-        String tmpTeleOpLowCone = bundle.getString(bundleValues.TeleOpLowConeTicker.toString());
-        String tmpTeleOpLowCube = bundle.getString(bundleValues.TeleOpLowCubeTicker.toString());
+        int tempTeleOpHighCone = bundle.getInt(String.valueOf(bundleValues.TeleOpHighConeTicker),0);
+        int tempTeleOpHighCube = bundle.getInt(String.valueOf(bundleValues.TeleOpHighCubeTicker),0);
+        int tempTeleOpMidCone = bundle.getInt(String.valueOf(bundleValues.TeleOpMidConeTicker),0);
+        int tempTeleOpMidCube = bundle.getInt(String.valueOf(bundleValues.TeleOpMidCubeTicker),0);
+        int tempTeleOpLowCone = bundle.getInt(String.valueOf(bundleValues.TeleOpLowConeTicker),0);
+        int tempTeleOpLowCube = bundle.getInt(String.valueOf(bundleValues.TeleOpLowCubeTicker),0);
+
+        String tmpTeleOpHighCone = String.valueOf(tempTeleOpHighCone);
+        String tmpTeleOpHighCube = String.valueOf(tempTeleOpHighCube);
+        String tmpTeleOpMidCone = String.valueOf(tempTeleOpMidCone);
+        String tmpTeleOpMidCube = String.valueOf(tempTeleOpMidCube);
+        String tmpTeleOpLowCone = String.valueOf(tempTeleOpLowCone);
+        String tmpTeleOpLowCube = String.valueOf(tempTeleOpLowCube);
 
         String tmpTeleOpRoleDrop = data.getRole();
         String tmpTeleOpNaughtyCheck= String.valueOf(data.getDirty());
 
 
         //Endgame
-        String tmpEndgameHighLink = bundle.getString(bundleValues.EndgameHighLinkTicker.toString());
-        String tmpEndgameMidLink = bundle.getString(bundleValues.EndgameMidLinkTicker.toString());
-        String tmpEndgameLowLink = bundle.getString(bundleValues.EndgameLowLinkTicker.toString());
+        int tempEndgameHighLink = bundle.getInt(String.valueOf(bundleValues.EndgameHighLinkTicker),0);
+        int tempEndgameMidLink = bundle.getInt(String.valueOf(bundleValues.EndgameMidLinkTicker),0);
+        int tempEndgameLowLink = bundle.getInt(String.valueOf(bundleValues.EndgameLowLinkTicker),0);
+        String tmpEndgameHighLink = String.valueOf(tempEndgameHighLink);
+        String tmpEndgameMidLink = String.valueOf(tempEndgameMidLink);
+        String tmpEndgameLowLink = String.valueOf(tempEndgameLowLink);
 
         String tmpEndgameTotalScoreBox = String.valueOf(data.getendgamePoints());
         String tmpEndgameNotes = String.valueOf(data.getnotes());
@@ -427,7 +452,17 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
+        //Reset the bundle values
         BundleUtils.resetBundleValues(bundle);
+        //reset the dataobject
+        dataModelDAO.destroyMyDataObject();
+        //Create a new instance
+        DataModel newObj = dataModelDAO.getMyDataObject();
+
+        //Go back to the home tab
+        setContentView(R.layout.intropage);
+
     }
 
 

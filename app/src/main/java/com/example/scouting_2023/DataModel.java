@@ -36,7 +36,7 @@ public class DataModel extends ViewModel {
         private int endgameHigh = 0;
         private int endgameMid =0;
         private int endgameLow=0;
-        private int endgamePoints=0;
+        private String endgamePoints="";
         private boolean coopertition =false;
 
         private boolean endgameDocked= false;
@@ -85,7 +85,7 @@ public class DataModel extends ViewModel {
         public int getendgameHigh() {return endgameHigh;}
         public int getendgameMid()  {return endgameMid;}
         public int getendgameLow()  {return endgameLow;}
-        public int getendgamePoints() {return endgamePoints;}
+        public String getendgamePoints() {return endgamePoints;}
         public boolean getcoopertition(){return coopertition;}
         public boolean getendgameDocked(){return endgameDocked;}
         public boolean getendgameEngaged(){return endgameEngaged;}
@@ -128,7 +128,7 @@ public class DataModel extends ViewModel {
         public void setendgameLow(final int endgameLow) {this.endgameLow = endgameLow;}
         public void setendgameMid(final int endgameMid) {this.endgameMid = endgameMid;}
         public void setendgameHigh(final int endgameHigh) {this.endgameHigh = endgameHigh;}
-        public void setendgamePoints(final int endgamePoints) {this.endgamePoints = endgamePoints;}
+        public void setendgamePoints(final String endgamePoints) {this.endgamePoints = endgamePoints;}
 
         public void setnotes(final String notes) {this.notes = notes;}
         public void setwin(final boolean win){this.win = win;}

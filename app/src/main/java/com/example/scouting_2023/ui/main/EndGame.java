@@ -65,7 +65,7 @@ public class EndGame extends Fragment {
                 DataModelDAO dataModelDAO = DataModelDAO.getInstance();
                 // Get a reference to your data object
                 DataModel data = dataModelDAO.getMyDataObject();
-                data.setendgamePoints(Integer.parseInt(retTxtScore));
+                data.setendgamePoints(retTxtScore);
                 data.setnotes(retTxtNotes);
                 data.setwin(Boolean.parseBoolean(retChkWin));
                 data.setcoopertition(Boolean.parseBoolean(retChkCoopertition));
@@ -96,7 +96,7 @@ public void saveData(){
     DataModelDAO dataModelDAO = DataModelDAO.getInstance();
     // Get a reference to your data object
     DataModel data = dataModelDAO.getMyDataObject();
-    data.setendgamePoints(Integer.parseInt(retTxtScore));
+    data.setendgamePoints(retTxtScore);
     data.setnotes(retTxtNotes);
     data.setwin(retChkWin);
     data.setcoopertition(retChkCoopertition);
