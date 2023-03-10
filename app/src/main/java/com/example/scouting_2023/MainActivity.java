@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     String fileName = "/chargedUp-";
 
-    //String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + fileName); // change
-    String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + fileName);
+    String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + fileName); // change
+    //String filepath = (Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + fileName);
 
     //Global access to UI Elements
     private DataModel data;
