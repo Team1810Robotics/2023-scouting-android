@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="TeleopRoleDrop">
+        <item>Role</item>
+        <item>Taxi</item>
+        <item>Scorer</item>
+        <item>Blocker</item>
+        <item>Mixed</item>
+    </string-array>
+</resources>

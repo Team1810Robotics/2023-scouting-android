@@ -455,7 +455,6 @@
         android:layout_height="64dp"
         android:entries="@array/TeleopRoleDrop"
         android:spinnerMode="dropdown"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/TeleOpNaughtyCheck"
         app:layout_constraintHorizontal_bias="0.638"
