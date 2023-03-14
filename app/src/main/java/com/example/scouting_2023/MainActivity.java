@@ -415,7 +415,7 @@ public void createDAO(){
 //change capitilazation
 
             List<String[]> outputdata = new ArrayList<String[]>();
-            outputdata.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "EndGamePoints", "EndGameCoopertition", "EndGameLinkLow", "EndGameLinkMid", "EndGameLinkHigh", "Won"});
+            outputdata.add(new String[]{"MatchId", "TeamId", "Color", "AutoLowCone", "AutoLowCube", "AutoMidCone", "AutoMidCube", "AutoHighCone", "AutoHighCube", "AutoLeftComm", "AutoDocked", "AutoEngaged", "TeleLowCone", "TeleLowCube", "TeleMidCone", "TeleMidCube", "TeleHighCone", "TeleHighCube", "TeleTeamRole", "TeleDirtyPlay", "EndGameNotes", "EndGamePoints", "EndGameCoopertition", "EndGameLinkLow", "EndGameLinkMid", "EndGameLinkHigh", "Won", "EndGameDocked", "EndGameEngaged"});
             outputdata.add(new String[]{tmpMatchID, tmpTeamID, tmpAllianceColor, tmpAutoLowCone, tmpAutoLowCube, tmpAutoMidCone, tmpAutoMidCube, tmpAutoHighCone, tmpAutoHighCube, tmpAutoLeft, tmpAutoDocked, tmpAutoEngaged, tmpTeleOpLowCone, tmpTeleOpLowCube, tmpTeleOpMidCone, tmpTeleOpMidCube, tmpTeleOpHighCone, tmpTeleOpHighCube, tmpTeleOpRoleDrop, tmpTeleOpNaughtyCheck, tmpEndgameNotes, tmpEndgameTotalScoreBox, tmpEndgameCoopertitionBonusBox, tmpEndgameLowLink, tmpEndgameMidLink, tmpEndgameHighLink, tmpEndgameDidTheyWinBox, tmpEndgameDockedBox, tmpEndgameEngagedBox});
             //confirmation message
 
